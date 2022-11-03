@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iostream>
 #include <algorithm>
+#include <utility>
 
 #define students_classes "../students_classes.csv"
 using namespace std;
@@ -42,14 +43,20 @@ void csv_students_classes_reader(vector<Estudante>& vectorEstudantes)
 
             Estudante estudanteTemp(studentName, studentCode);
 
-            for (Estudante itEstudante : vectorEstudantes)
+            for (int i = 0; i < vectorEstudantes.size(); i++)
             {
-                if (itEstudante.getUpCode() == studentCode)
+                if (vectorEstudantes[i].getUpCode() == studentCode)
                 {
                     estudanteExists = true;
-                    itEstudante.vectorUcClass.push_back({ucCode, classCode});
+                    //cout<<itEstudante.getName()<<endl;
+                    vectorEstudantes[i].vectorUcClass.emplace_back(ucCode, classCode);
+                    //cout << vectorEstudantes[i].vectorUcClass.size();
+                    //cout << itEstudante.vectorUcClass[0].first << endl;
+                    //cout << itEstudante.vectorUcClass[1].second << endl;
                 }
             }
+
+
 
             if (!estudanteExists)
             {
@@ -71,17 +78,13 @@ int main() {
     vector<Estudante> vectorEstudantes;
     map<pair<string,string>,int> mapUcClassTimeSlot;
     csv_students_classes_reader(vectorEstudantes);
-    for (Estudante estudante : vectorEstudantes)
+    for (Estudante itEstudante : vectorEstudantes)
     {
-        cout<<estudante.getName()<<endl;
-        //cout<<estudante.vectorUcClass[0].first;
+            cout<<itEstudante.getName()<<endl;
+            //itEstudante.vectorUcClass.push_back(make_pair(ucCode, classCode));
+        cout << itEstudante.vectorUcClass.size() << endl;
+            cout << itEstudante.vectorUcClass[1].second << endl;
     }
-/* esta parte dá bronca
-    Estudante a = vectorEstudantes[0];
-    pair<string, string> aula1 = a.vectorUcClass[0];
-    cout << vectorEstudantes.size() << endl;
-    */
     cout << "Hello, World!" << std::endl;
-    //cout << aula1.first << endl;
     return 0;
 }
