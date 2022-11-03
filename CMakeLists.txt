@@ -5,4 +5,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(untitled2 main.cpp
         Estudante.cpp
-        Estudante.h)
+        Slot.cpp
+        Estudante.h
+        Slot.h)

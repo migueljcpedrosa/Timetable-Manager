@@ -4,8 +4,6 @@
 #include "Estudante.h"
 #include <string>
 #include <fstream>
-#include <sstream>
-#include <iostream>
 #include <algorithm>
 #include <utility>
 
@@ -13,7 +11,7 @@
 using namespace std;
 
 
-void csv_students_classes_reader(vector<Estudante>& vectorEstudantes)
+void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
 {
     // File variables.
     string studentCode, studentName, ucCode, classCode;
@@ -75,10 +73,49 @@ void csv_students_classes_reader(vector<Estudante>& vectorEstudantes)
     }
 }
 
+
+void csvClassesReader(const string& filename) { //csv_classes_reader
+    // File variables.
+    string classCode, ucCode, weekday, cType;
+    string startHour, duration;
+
+
+    // Filename
+    ifstream coeff(filename); // Opens the file.
+
+    if (coeff.is_open()) // Checks if the file is open.
+    {
+        // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
+        string line;
+        getline(coeff, line);
+
+        // While the end of the file is not reached.
+        while (!coeff.eof()) {
+            //{class_code, uc_code, weekday, start_hour, duration, type}
+            getline(coeff, classCode, ',');
+
+            getline(coeff, ucCode, ',');
+
+            getline(coeff, weekday, ',');
+            getline(coeff, startHour, ',');
+            getline(coeff, duration, ',');
+            getline(coeff, cType, '\n');
+
+        }
+
+        coeff.close(); // Closing the file.
+    }
+    else
+    {
+        cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
+    }
+}
+
+
 int main() {
     vector<Estudante> vectorEstudantes;
-    map<pair<string,string>,int> mapUcClassTimeSlot;
-    csv_students_classes_reader(vectorEstudantes);
+    map<pair<string,string>, string> mapUcClassTimeSlot;
+    csvStudentsClassesReader(vectorEstudantes);
     for (Estudante itEstudante : vectorEstudantes)
     {
             cout<<itEstudante.getName()<<endl;
