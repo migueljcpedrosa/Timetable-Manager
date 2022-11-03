@@ -60,6 +60,7 @@ void csv_students_classes_reader(vector<Estudante>& vectorEstudantes)
 
             if (!estudanteExists)
             {
+                estudanteTemp.vectorUcClass.emplace_back(ucCode, classCode);
                 vectorEstudantes.push_back(estudanteTemp);
             }
 
@@ -82,8 +83,8 @@ int main() {
     {
             cout<<itEstudante.getName()<<endl;
             //itEstudante.vectorUcClass.push_back(make_pair(ucCode, classCode));
-        cout << itEstudante.vectorUcClass.size() << endl;
-            cout << itEstudante.vectorUcClass[1].second << endl;
+            cout << itEstudante.vectorUcClass.size() << endl;
+            cout << itEstudante.vectorUcClass[0].first << endl;
     }
     cout << "Hello, World!" << std::endl;
     return 0;
