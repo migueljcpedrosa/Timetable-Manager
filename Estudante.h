@@ -32,7 +32,6 @@ private:
     string name;
     string upCode;
 
-    //vector<Aula> studentSchedule;/**< A schedule is implemented as vector of classes sorted by date*/
 };
 
 #endif //UNTITLED2_ESTUDANTE_H
