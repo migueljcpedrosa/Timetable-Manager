@@ -51,7 +51,7 @@ void csv_students_classes_reader(vector<Estudante>& vectorEstudantes)
                 }
             }
 
-            if (!estudanteExists)//if estudante doesn't exist create a new object
+            if (!estudanteExists)
             {
                 vectorEstudantes.push_back(estudanteTemp);
             }
@@ -74,8 +74,14 @@ int main() {
     for (Estudante estudante : vectorEstudantes)
     {
         cout<<estudante.getName()<<endl;
+        //cout<<estudante.vectorUcClass[0].first;
     }
-    cout << vectorEstudantes.size();
+/* esta parte dá bronca
+    Estudante a = vectorEstudantes[0];
+    pair<string, string> aula1 = a.vectorUcClass[0];
+    cout << vectorEstudantes.size() << endl;
+    */
     cout << "Hello, World!" << std::endl;
+    //cout << aula1.first << endl;
     return 0;
 }
