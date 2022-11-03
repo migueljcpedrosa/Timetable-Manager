@@ -20,6 +20,7 @@ using namespace std;
  */
 class Estudante {
 public:
+    vector<pair<string, string>> vectorUcClass;
     //Estudante();
     Estudante(string name, string upCode);
     string getName() const;
@@ -28,7 +29,7 @@ public:
 private:
     string name;
     string upCode;
-    vector<pair<string, string>> vectorUcClass;
+
     //vector<Aula> studentSchedule;/**< A schedule is implemented as vector of classes sorted by date*/
 };
 

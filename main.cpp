@@ -6,19 +6,19 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
+
+#define students_classes "../students_classes.csv"
 using namespace std;
 
 
-void csv_students_classes_reader(const string& filename, vector <string>& v_student_code, vector <string>& v_student_name, vector <string>& v_uc_code, vector <string>& v_class_code)
+void csv_students_classes_reader(vector<Estudante>& vectorEstudantes)
 {
-    vector<Estudante> vectorEstudantes;
     // File variables.
-    string student_code, student_name, uc_code, class_code;
+    string studentCode, studentName, ucCode, classCode;
 
     // Filename
-    ifstream coeff(filename); // Opens the file.
-
-    int number_students = 0;
+    ifstream coeff(students_classes); // Opens the file.
 
     if (coeff.is_open()) // Checks if the file is open.
     {
@@ -31,32 +31,32 @@ void csv_students_classes_reader(const string& filename, vector <string>& v_stud
         while (!coeff.eof())
         {
             //{class_code, uc_code, weekday, start_hour, duration, type}
-            getline(coeff, student_code, ',');
-            v_student_code.push_back(student_code);
+            getline(coeff, studentCode, ',');
 
-            getline(coeff, student_name, ',');
-            v_student_name.push_back(student_name);
+            getline(coeff, studentName, ',');
 
-            getline(coeff, uc_code, ',');
-            v_uc_code.push_back(uc_code);
+            getline(coeff, ucCode, ',');
 
-            getline(coeff, class_code, '\n');
-            v_class_code.push_back(class_code);
+            getline(coeff, classCode, '\n');;
+
+
+            Estudante estudanteTemp(studentName, studentCode);
 
             for (Estudante itEstudante : vectorEstudantes)
             {
-                if (itEstudante.getUpCode() == student_code)
+                if (itEstudante.getUpCode() == studentCode)
                 {
                     estudanteExists = true;
+                    itEstudante.vectorUcClass.push_back({ucCode, classCode});
                 }
             }
 
             if (!estudanteExists)//if estudante doesn't exist create a new object
             {
-                Estudante estudanteTemp(student_name, student_code);
+                vectorEstudantes.push_back(estudanteTemp);
             }
 
-
+            estudanteExists = false;
         }
 
         coeff.close(); // Closing the file.
@@ -70,6 +70,12 @@ void csv_students_classes_reader(const string& filename, vector <string>& v_stud
 int main() {
     vector<Estudante> vectorEstudantes;
     map<pair<string,string>,int> mapUcClassTimeSlot;
+    csv_students_classes_reader(vectorEstudantes);
+    for (Estudante estudante : vectorEstudantes)
+    {
+        cout<<estudante.getName()<<endl;
+    }
+    cout << vectorEstudantes.size();
     cout << "Hello, World!" << std::endl;
     return 0;
 }
