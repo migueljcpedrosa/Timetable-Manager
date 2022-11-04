@@ -13,14 +13,37 @@ using namespace std;
  */
 class Slot{
     public:
+        /** Slot Constructor
+        * @param begin the starting hour of the class (aula)
+        * @param duration the duration of the class (aula)
+        * @param classType the type of the class (aula T or TP)
+        */
         Slot(float begin, float duration, string classType);
+
+        /**
+        * Get begin
+        *
+        * @returns begin
+        */
         float getBegin() const;
+
+        /**
+        * Get the duration
+        *
+        * @returns the duration
+        */
         float getDuration() const;
+
+        /**
+        * Get the classType
+        *
+        * @returns the classType
+        */
         string getClassType() const;
     private:
-        float begin;
-        float duration;
-        string classType;
+        float begin;/**< Starting hour of the class (aula)*/
+        float duration;/**< Duration of the class (aula)*/
+        string classType;/**< Type of the class (aula: T or TP)*/
 };
 
 

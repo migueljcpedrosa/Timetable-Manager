@@ -20,17 +20,39 @@ using namespace std;
  * A class to store the general information about a Student (Estudante)
  */
 class Estudante {
-public:
-    vector<pair<string, string>> vectorUcClass;
-    //Estudante();
-    Estudante(string name, string upCode);
-    string getName() const;
-    string getUpCode() const;
-    void readStudent(const string& filename);
-    void displayUpClasses();
-private:
-    string name;
-    string upCode;
+    public:
+        /** Estudante Constructor
+        * @param name the name of the student
+        * @param upCode the university code of the student
+        */;
+        Estudante(string name, string upCode);
+
+        /**
+        * Get name
+        *
+        * @returns name
+        */
+        string getName() const;
+
+        /**
+        * Get upCode
+        *
+        * @returns upCode
+        */
+        string getUpCode() const;
+
+        /**
+        * Displays the UpClasses of a student
+        *
+        * @returns void
+        */
+        void displayUpClasses();
+
+        vector<pair<string, string>> vectorUcClass; /**< A vector of pairs made by a ucCode and a classCode*/
+
+    private:
+        string name; /**< The student's name*/
+        string upCode; /**< The student's university code*/
 
 };
 
