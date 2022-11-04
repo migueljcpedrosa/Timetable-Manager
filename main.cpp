@@ -9,6 +9,7 @@
 #include <utility>
 
 #define students_classes "../students_classes.csv"
+#define classes "../classes.csv"
 using namespace std;
 
 
@@ -18,26 +19,26 @@ void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
     string studentCode, studentName, ucCode, classCode;
 
     // Filename
-    ifstream coeff(students_classes); // Opens the file.
+    ifstream file(students_classes); // Opens the file.
 
-    if (coeff.is_open()) // Checks if the file is open.
+    if (file.is_open()) // Checks if the file is open.
     {
         // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
         string line;
-        getline(coeff, line);
+        getline(file, line);
         bool estudanteExists = false;
 
         // While the end of the file is not reached.
-        while (!coeff.eof())
+        while (!file.eof())
         {
             //{class_code, uc_code, weekday, start_hour, duration, type}
-            getline(coeff, studentCode, ',');
+            getline(file, studentCode, ',');
 
-            getline(coeff, studentName, ',');
+            getline(file, studentName, ',');
 
-            getline(coeff, ucCode, ',');
+            getline(file, ucCode, ',');
 
-            getline(coeff, classCode, '\n');;
+            getline(file, classCode, '\n');;
 
 
             Estudante estudanteTemp(studentName, studentCode);
@@ -66,7 +67,7 @@ void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
             estudanteExists = false;
         }
 
-        coeff.close(); // Closing the file.
+        file.close(); // Closing the file.
     }
     else
     {
@@ -75,36 +76,42 @@ void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
 }
 
 
-void csvClassesReader(const string& filename) { //csv_classes_reader
+void csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
+{ //csv_classes_reader
     // File variables.
+
+
     string classCode, ucCode, weekday, cType;
     string startHour, duration;
 
 
     // Filename
-    ifstream coeff(filename); // Opens the file.
+    ifstream file(classes); // Opens the file.
 
-    if (coeff.is_open()) // Checks if the file is open.
+    if (file.is_open()) // Checks if the file is open.
     {
         // Skip the first line (ClassCode,UcCode,Weekday,StartHour,Duration,Type).
         string line;
-        getline(coeff, line);
+        getline(file, line);
 
         // While the end of the file is not reached.
-        while (!coeff.eof()) {
+        while (!file.eof()) {
             //{class_code, uc_code, weekday, start_hour, duration, type}
-            getline(coeff, classCode, ',');
+            getline(file, classCode, ',');
 
-            getline(coeff, ucCode, ',');
+            getline(file, ucCode, ',');
 
-            getline(coeff, weekday, ',');
-            getline(coeff, startHour, ',');
-            getline(coeff, duration, ',');
-            getline(coeff, cType, '\n');
+            getline(file, weekday, ',');
+            getline(file, startHour, ',');
+            getline(file, duration, ',');
+            getline(file, cType, '\n');
 
+            Slot tempSlot(stof(startHour), stof(duration), cType);
+            cout << tempSlot.getBegin() + 2;
+            mapUcClassTimeSlot.insert({make_pair(ucCode, classCode), tempSlot});
         }
 
-        coeff.close(); // Closing the file.
+        file.close(); // Closing the file.
     }
     else
     {
@@ -115,8 +122,9 @@ void csvClassesReader(const string& filename) { //csv_classes_reader
 
 int main() {
     vector<Estudante> vectorEstudantes;
-    map<pair<string,string>, string> mapUcClassTimeSlot;
+    map<pair<string,string>, Slot> mapUcClassTimeSlot;
     csvStudentsClassesReader(vectorEstudantes);
+    /*
     Slot mySlot(9.5, 1.5, "T");
     for (Estudante itEstudante : vectorEstudantes)
     {
@@ -128,4 +136,12 @@ int main() {
     cout << "Hello, World!" << std::endl;
     cout << mySlot.getBegin() << endl;
     return 0;
+    */
+    csvClassesReader(mapUcClassTimeSlot);
+    for (auto const& x: mapUcClassTimeSlot)
+    {
+        cout << x.first.first << ", " << x.first.second << ": " << x.second.getBegin() << ";" << x.second.getDuration() << ";" << x.second.getClassType() << endl;
+    }
+    cout << mapUcClassTimeSlot.size();
+    cout << "End";
 }
