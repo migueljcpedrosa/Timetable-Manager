@@ -18,7 +18,14 @@ class Slot{
         * @param duration the duration of the class (aula)
         * @param classType the type of the class (aula T or TP)
         */
-        Slot(float begin, float duration, string classType);
+        Slot(string weekday, float begin, float duration, string classType);
+
+        /**
+        * Get weekDay
+        *
+        * @returns weekDay
+        */
+        string getWeekDay() const;
 
         /**
         * Get begin
@@ -41,6 +48,7 @@ class Slot{
         */
         string getClassType() const;
     private:
+        string weekDay;/**< Weekday of the class (aula)*/
         float begin;/**< Starting hour of the class (aula)*/
         float duration;/**< Duration of the class (aula)*/
         string classType;/**< Type of the class (aula: T or TP)*/

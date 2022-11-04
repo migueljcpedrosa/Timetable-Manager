@@ -99,7 +99,7 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
             getline(file, duration, ',');
             getline(file, cType, '\n');
 
-            Slot tempSlot(stof(startHour), stof(duration), cType);
+            Slot tempSlot(weekday, stof(startHour), stof(duration), cType);
             mapUcClassTimeSlot.insert({make_pair(ucCode, classCode), tempSlot});
         }
 

@@ -40,7 +40,7 @@ void Estudante::displaySchedule(map<pair<string,string>, Slot>& mapUcClassTimeSl
     {
         cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
         auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second});
-        cout << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+        cout << it->second.getWeekDay() << "; " << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
     }
 
     cout << "\n";

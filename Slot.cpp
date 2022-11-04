@@ -4,11 +4,17 @@
 
 #include "Slot.h"
 
-Slot::Slot(float begin, float duration, string classType)
+Slot::Slot(string weekday, float begin, float duration, string classType)
 {
+    this->weekDay = weekday;
     this->begin = begin;
     this->duration = duration;
     this->classType = classType;
+}
+
+string Slot::getWeekDay() const
+{
+    return weekDay;
 }
 
 float Slot::getBegin() const
