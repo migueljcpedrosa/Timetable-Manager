@@ -45,8 +45,10 @@ int main() {
 
     //cout << vectorEstudantes[0].getUpCode();
      */
+    //displayAllStudents(vectorEstudantes);
+    sortStudentsByUpCode(vectorEstudantes);
     displayAllStudents(vectorEstudantes);
-    cout <<vectorEstudantes[vectorEstudantes.size() - 1].getName();
+    cout <<vectorEstudantes[vectorEstudantes.size() - 3].getName();
     cout << "End";
 
     return 0;

@@ -53,5 +53,11 @@ namespace TTM {
     * @param vectorEstudantes a vector that stores all the students
     */
     void displayAllStudents(vector<Estudante> &vectorEstudantes);
+
+    /** Sorts the students in a students' vector by their university code
+    * @param vectorEstudantes a vector that stores all the students
+    */
+    void sortStudentsByUpCode(vector<Estudante> &vectorEstudantes);
 }
+
 #endif //UNTITLED2_TTM_H

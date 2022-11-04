@@ -158,3 +158,15 @@ void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
     }
 }
 
+void TTM::sortStudentsByUpCode(vector<Estudante> &vectorEstudantes) {
+    std::sort(vectorEstudantes.begin(), vectorEstudantes.end(),
+              [](const Estudante &x, const Estudante &y) {
+// compare last names first
+                  if (x.getUpCode() != y.getUpCode()) {
+                      return x.getUpCode() < y.getUpCode();
+                  }
+
+// compare first names only if the last names are equal
+                  return x.getUpCode() < y.getUpCode();
+              });
+}
