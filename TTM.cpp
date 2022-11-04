@@ -112,7 +112,7 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 }
 
 
-void TTM::removeStudentFromClass(std::string upCode, vector<Estudante> &vectorEstudantes)
+void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes)
 {
     struct MatchString
     {
@@ -125,8 +125,26 @@ void TTM::removeStudentFromClass(std::string upCode, vector<Estudante> &vectorEs
         const std::string& s_;
     };
 
-    vector<Estudante>::iterator it = find_if(vectorEstudantes.begin(), vectorEstudantes.end(), MatchString("202025232"));
+    vector<Estudante>::iterator itEstudante = find_if(vectorEstudantes.begin(), vectorEstudantes.end(), MatchString(upCode));
 
-    cout << it->getUpCode();
+    for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
+    {
+        cout << itEstudante->vectorUcClass[i].first << ";" << itEstudante->vectorUcClass[i].second << endl;
+    }
+
+    cout << "lol" << endl;
+    for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
+    {
+        if (itEstudante->vectorUcClass[i].first == ucCode && itEstudante->vectorUcClass[i].second == classCode)
+        {
+            itEstudante->vectorUcClass.erase(itEstudante->vectorUcClass.begin() + i);
+        }
+    }
+
+    for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
+    {
+        cout << itEstudante->vectorUcClass[i].first << "; " << itEstudante->vectorUcClass[i].second << endl;
+    }
+
 }
 

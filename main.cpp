@@ -33,15 +33,18 @@ int main() {
     cout << mySlot.getBegin() << endl;
     return 0;
     */
-    TTM::removeStudentFromClass("202025232", vectorEstudantes);
-    /*
+    TTM::removeStudentFromClass("202071557", "L.EIC021", "3LEIC04",vectorEstudantes);
+
     csvClassesReader(mapUcClassTimeSlot);
+    /*
     for (auto const& x: mapUcClassTimeSlot)
     {
         cout << x.first.first << ", " << x.first.second << ": " << x.second.getBegin() << ";" << x.second.getDuration() << ";" << x.second.getClassType() << endl;
     }
-    cout << mapUcClassTimeSlot.size();
-    */
-    cout << vectorEstudantes[0].getUpCode();
+    //cout << mapUcClassTimeSlot.size();
+
+    //cout << vectorEstudantes[0].getUpCode();
+     */
     cout << "End";
+
 }
