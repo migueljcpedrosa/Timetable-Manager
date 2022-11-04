@@ -26,10 +26,25 @@ void Estudante::displayUpClasses()
     cout << "Student " << this->name << ";" << this->upCode << "\n";
     for (int i = 0; i < vectorUcClass.size(); i++)
     {
-        cout << vectorUcClass[i].first << ";" << vectorUcClass[i].second << endl;
+        cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << endl;
     }
+
+    cout << "\n";
 }
 
+
+void Estudante::displaySchedule(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
+{
+    cout << "Student " << this->name << ";" << this->upCode << "\n";
+    for (int i = 0; i < vectorUcClass.size(); i++)
+    {
+        cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
+        auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second});
+        cout << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+    }
+
+    cout << "\n";
+}
 /*
 void Estudante::readStudent(const string& filename){
 

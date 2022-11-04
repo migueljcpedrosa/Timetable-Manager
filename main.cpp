@@ -48,7 +48,8 @@ int main() {
     //displayAllStudents(vectorEstudantes);
     sortStudentsByUpCode(vectorEstudantes);
     displayAllStudents(vectorEstudantes);
-    cout <<vectorEstudantes[vectorEstudantes.size() - 3].getName();
+    vectorEstudantes[3].displaySchedule(mapUcClassTimeSlot);
+    //cout <<vectorEstudantes[vectorEstudantes.size() - 3].getName();
     cout << "End";
 
     return 0;

@@ -130,6 +130,8 @@ void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode,
     cout << "After UpClass removal:" << "\n";
     itEstudante->displayUpClasses();
 
+    cout << "\n";
+
 }
 
 vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& vectorEstudantes)
@@ -156,6 +158,8 @@ void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
     {
         cout << vectorEstudantes[i].getName() << ";" << vectorEstudantes[i].getUpCode() << "\n";
     }
+
+    cout << "\n";
 }
 
 void TTM::sortStudentsByUpCode(vector<Estudante> &vectorEstudantes) {
