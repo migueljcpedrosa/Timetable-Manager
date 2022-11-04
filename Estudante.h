@@ -27,7 +27,7 @@ public:
     string getName() const;
     string getUpCode() const;
     void readStudent(const string& filename);
-    void displayClasses();
+    void displayUpClasses();
 private:
     string name;
     string upCode;

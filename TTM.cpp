@@ -116,12 +116,9 @@ void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode,
 {
     vector<Estudante>::iterator itEstudante = TTM::studentFind(upCode, vectorEstudantes);
 
-    for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
-    {
-        cout << itEstudante->vectorUcClass[i].first << ";" << itEstudante->vectorUcClass[i].second << endl;
-    }
+    cout << "Before UpClass removal:" << "\n";
+    itEstudante->displayUpClasses();
 
-    cout << "lol" << endl;
     for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
     {
         if (itEstudante->vectorUcClass[i].first == ucCode && itEstudante->vectorUcClass[i].second == classCode)
@@ -129,11 +126,9 @@ void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode,
             itEstudante->vectorUcClass.erase(itEstudante->vectorUcClass.begin() + i);
         }
     }
-
-    for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
-    {
-        cout << itEstudante->vectorUcClass[i].first << "; " << itEstudante->vectorUcClass[i].second << endl;
-    }
+    cout << "\n";
+    cout << "After UpClass removal:" << "\n";
+    itEstudante->displayUpClasses();
 
 }
 
