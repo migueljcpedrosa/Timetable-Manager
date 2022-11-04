@@ -2,6 +2,8 @@
 // Created by m3ped on 03/11/2022.
 //
 
+#include <algorithm>
+#include <iostream>
 #include "Estudante.h"
 
 Estudante::Estudante(string name, string upCode)
@@ -18,7 +20,6 @@ string Estudante::getUpCode() const
 {
     return this->upCode;
 }
-
 
 /*
 void Estudante::readStudent(const string& filename){

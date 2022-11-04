@@ -22,6 +22,9 @@
 namespace TTM
 {
     void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes);
+    void csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot);
+
+    void removeStudentFromClass(string upCode, vector<Estudante>& vectorEstudantes);
 }
 
 #endif //UNTITLED2_TTM_H

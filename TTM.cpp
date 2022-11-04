@@ -6,7 +6,7 @@
 using namespace std;
 
 
-void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
+void TTM::csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
 {
     // File variables.
     string studentCode, studentName, ucCode, classCode;
@@ -69,7 +69,7 @@ void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
 }
 
 
-void csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
+void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 { //csv_classes_reader
     // File variables.
 
@@ -110,3 +110,23 @@ void csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
 }
+
+
+void TTM::removeStudentFromClass(std::string upCode, vector<Estudante> &vectorEstudantes)
+{
+    struct MatchString
+    {
+        MatchString(const std::string& s) : s_(s) {}
+        bool operator()(const Estudante obj) const
+        {
+            return obj.getUpCode() == s_;
+        }
+    private:
+        const std::string& s_;
+    };
+
+    vector<Estudante>::iterator it = find_if(vectorEstudantes.begin(), vectorEstudantes.end(), MatchString("202025232"));
+
+    cout << it->getUpCode();
+}
+
