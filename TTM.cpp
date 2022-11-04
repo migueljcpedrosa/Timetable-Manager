@@ -1,18 +1,9 @@
-#include <iostream>
-#include <map>
-#include <vector>
-#include "Estudante.h"
-#include "Slot.h"
+//
+// Created by m3ped on 04/11/2022.
+//
 #include "TTM.h"
-#include <string>
-#include <fstream>
-#include <algorithm>
-#include <utility>
 
-#define students_classes "../students_classes.csv"
-#define classes "../classes.csv"
 using namespace std;
-using namespace TTM;
 
 
 void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
@@ -118,31 +109,4 @@ void csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
     {
         cout << "Error: Unable to open file."; // In case the program fails to open the file, this error message appears.
     }
-}
-
-
-int main() {
-    vector<Estudante> vectorEstudantes;
-    map<pair<string,string>, Slot> mapUcClassTimeSlot;
-    csvStudentsClassesReader(vectorEstudantes);
-    /*
-    Slot mySlot(9.5, 1.5, "T");
-    for (Estudante itEstudante : vectorEstudantes)
-    {
-            cout<<itEstudante.getName()<<endl;
-            //itEstudante.vectorUcClass.push_back(make_pair(ucCode, classCode));
-            cout << itEstudante.vectorUcClass.size() << endl;
-            cout << itEstudante.vectorUcClass[0].first << endl;
-    }
-    cout << "Hello, World!" << std::endl;
-    cout << mySlot.getBegin() << endl;
-    return 0;
-    */
-    csvClassesReader(mapUcClassTimeSlot);
-    for (auto const& x: mapUcClassTimeSlot)
-    {
-        cout << x.first.first << ", " << x.first.second << ": " << x.second.getBegin() << ";" << x.second.getDuration() << ";" << x.second.getClassType() << endl;
-    }
-    cout << mapUcClassTimeSlot.size();
-    cout << "End";
 }

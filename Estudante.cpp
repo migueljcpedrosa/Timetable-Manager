@@ -4,15 +4,18 @@
 
 #include "Estudante.h"
 
-Estudante::Estudante(string name, string upCode){
+Estudante::Estudante(string name, string upCode)
+{
     this->name=name;
     this->upCode=upCode;
 }
 
-string Estudante::getName() const{
+string Estudante::getName() const
+{
     return this->name;
 }
-string Estudante::getUpCode() const{
+string Estudante::getUpCode() const
+{
     return this->upCode;
 }
 
