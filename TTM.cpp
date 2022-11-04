@@ -102,9 +102,15 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot, m
             Slot tempSlot(weekday, stof(startHour), stof(duration), cType);
             mapUcClassTimeSlot.insert({make_pair(ucCode, classCode), tempSlot});
 
-            mapUcClassNumberSudents.insert({make_pair(ucCode, classCode), 5});
-
-
+            auto it = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
+            if (it != mapUcClassNumberSudents.end())
+            {
+                it->second++;
+            }
+            else
+            {
+                mapUcClassNumberSudents.insert({make_pair(ucCode, classCode), 1});
+            }
         }
 
         file.close(); // Closing the file.
