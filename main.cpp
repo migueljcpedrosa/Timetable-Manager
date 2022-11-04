@@ -19,6 +19,7 @@ int main() {
     vector<Estudante> vectorEstudantes;
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
     csvStudentsClassesReader(vectorEstudantes);
+    map<pair<string, string>, int> mapUcClassNumberSudents;
 
     /*
     Slot mySlot(9.5, 1.5, "T");
@@ -35,7 +36,7 @@ int main() {
     */
     TTM::removeStudentFromClass("202071557", "L.EIC021", "3LEIC04", vectorEstudantes);
 
-    csvClassesReader(mapUcClassTimeSlot);
+    csvClassesReader(mapUcClassTimeSlot, mapUcClassNumberSudents);
     /*
     for (auto const& x: mapUcClassTimeSlot)
     {
@@ -50,6 +51,11 @@ int main() {
     displayAllStudents(vectorEstudantes);
     vectorEstudantes[3].displaySchedule(mapUcClassTimeSlot);
     //cout <<vectorEstudantes[vectorEstudantes.size() - 3].getName();
+    auto itt = mapUcClassNumberSudents.find({make_pair("1LEIC04","L.EIC001")});
+    cout << mapUcClassTimeSlot.size() << endl;
+    //mapUcClassNumberSudents.insert({make_pair("b", "d"), 5});
+    //mapUcClassNumberSudents.clear();
+    cout << mapUcClassNumberSudents.size() << endl;
     cout << "End";
 
     return 0;

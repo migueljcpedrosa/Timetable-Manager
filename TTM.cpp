@@ -69,7 +69,7 @@ void TTM::csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
 }
 
 
-void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
+void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot, map<pair<string, string>, int>& mapUcClassNumberSudents)
 { //csv_classes_reader
     // File variables.
 
@@ -101,6 +101,10 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 
             Slot tempSlot(weekday, stof(startHour), stof(duration), cType);
             mapUcClassTimeSlot.insert({make_pair(ucCode, classCode), tempSlot});
+
+            mapUcClassNumberSudents.insert({make_pair(ucCode, classCode), 5});
+
+
         }
 
         file.close(); // Closing the file.
