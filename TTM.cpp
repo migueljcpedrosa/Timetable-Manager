@@ -114,18 +114,7 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 
 void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes)
 {
-    struct MatchString
-    {
-        MatchString(const std::string& s) : s_(s) {}
-        bool operator()(const Estudante obj) const
-        {
-            return obj.getUpCode() == s_;
-        }
-    private:
-        const std::string& s_;
-    };
-
-    vector<Estudante>::iterator itEstudante = find_if(vectorEstudantes.begin(), vectorEstudantes.end(), MatchString(upCode));
+    vector<Estudante>::iterator itEstudante = TTM::studentFind(upCode, vectorEstudantes);
 
     for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
     {
@@ -146,5 +135,23 @@ void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode,
         cout << itEstudante->vectorUcClass[i].first << "; " << itEstudante->vectorUcClass[i].second << endl;
     }
 
+}
+
+vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& vectorEstudantes)
+{
+    struct MatchString
+    {
+        MatchString(const std::string& s) : s_(s) {}
+        bool operator()(const Estudante obj) const
+        {
+            return obj.getUpCode() == s_;
+        }
+    private:
+        const std::string& s_;
+    };
+
+    vector<Estudante>::iterator itEstudante = find_if(vectorEstudantes.begin(), vectorEstudantes.end(), MatchString(upCode));
+
+    return itEstudante;
 }
 
