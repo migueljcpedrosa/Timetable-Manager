@@ -17,7 +17,7 @@ using namespace TTM;
 
 int main() {
     vector<Estudante> vectorEstudantes;
-    map<pair<string,string>, Slot> mapUcClassTimeSlot;
+    map<pair<string, string>, Slot> mapUcClassTimeSlot;
     csvStudentsClassesReader(vectorEstudantes);
 
     /*
@@ -33,7 +33,7 @@ int main() {
     cout << mySlot.getBegin() << endl;
     return 0;
     */
-    TTM::removeStudentFromClass("202071557", "L.EIC021", "3LEIC04",vectorEstudantes);
+    TTM::removeStudentFromClass("202071557", "L.EIC021", "3LEIC04", vectorEstudantes);
 
     csvClassesReader(mapUcClassTimeSlot);
     /*
@@ -45,6 +45,9 @@ int main() {
 
     //cout << vectorEstudantes[0].getUpCode();
      */
+    displayAllStudents(vectorEstudantes);
+    cout <<vectorEstudantes[vectorEstudantes.size() - 1].getName();
     cout << "End";
 
+    return 0;
 }

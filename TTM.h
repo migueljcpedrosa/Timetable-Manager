@@ -22,17 +22,16 @@
 /**
  * A namespace to store the functions that don't belong to any specific class
  */
-namespace TTM
-{
+namespace TTM {
     /** students_classes.csv Reader
     * @param vectorEstudantes a vector that stores all the students
     */
-    void csvStudentsClassesReader(vector<Estudante>& vectorEstudantes);
+    void csvStudentsClassesReader(vector<Estudante> &vectorEstudantes);
 
     /** classes.csv Reader
     * @param mapUcClassTimeSlot a map that links each ucClass to it's correspondent timeSlot
     */
-    void csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot);
+    void csvClassesReader(map<pair<string, string>, Slot> &mapUcClassTimeSlot);
 
     /** Removes Student from Class (Aula)
     * @param upCode a student's upCode
@@ -40,7 +39,7 @@ namespace TTM
     * @param ucCode the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     */
-    void removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes);
+    void removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante> &vectorEstudantes);
 
     /** Finds a student with a specific university code in the students' vector
     * @param upCode a student's upCode
@@ -48,7 +47,11 @@ namespace TTM
     * @param ucCode the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     */
-    vector<Estudante>::iterator studentFind(string upCode, vector<Estudante>& vectorEstudantes);
-}
+    vector<Estudante>::iterator studentFind(string upCode, vector<Estudante> &vectorEstudantes);
 
+    /** Displays the name and university code of each student in a students' vector
+    * @param vectorEstudantes a vector that stores all the students
+    */
+    void displayAllStudents(vector<Estudante> &vectorEstudantes);
+}
 #endif //UNTITLED2_TTM_H

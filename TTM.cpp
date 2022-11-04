@@ -150,3 +150,11 @@ vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& v
     return itEstudante;
 }
 
+void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
+{
+    for (int i = 0; i < vectorEstudantes.size(); i++)
+    {
+        cout << vectorEstudantes[i].getName() << ";" << vectorEstudantes[i].getUpCode() << "\n";
+    }
+}
+
