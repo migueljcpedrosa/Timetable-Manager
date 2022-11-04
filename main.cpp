@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include "Estudante.h"
+#include "Slot.h"
 #include <string>
 #include <fstream>
 #include <algorithm>
@@ -116,6 +117,7 @@ int main() {
     vector<Estudante> vectorEstudantes;
     map<pair<string,string>, string> mapUcClassTimeSlot;
     csvStudentsClassesReader(vectorEstudantes);
+    Slot mySlot(9.5, 1.5, "T");
     for (Estudante itEstudante : vectorEstudantes)
     {
             cout<<itEstudante.getName()<<endl;
@@ -124,5 +126,6 @@ int main() {
             cout << itEstudante.vectorUcClass[0].first << endl;
     }
     cout << "Hello, World!" << std::endl;
+    cout << mySlot.getBegin() << endl;
     return 0;
 }

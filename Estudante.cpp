@@ -4,11 +4,6 @@
 
 #include "Estudante.h"
 
-
-/**
- * A class to store the general information about a Student (Estudante)
- */
-
 Estudante::Estudante(string name, string upCode){
     this->name=name;
     this->upCode=upCode;

@@ -5,16 +5,22 @@
 #ifndef UNTITLED2_SLOT_H
 #define UNTITLED2_SLOT_H
 
+#include <string>
+using namespace std;
 
-class Slot {
+/**
+ * A class to store the general information about the starting hour, duration and type of a Class (Aula)
+ */
+class Slot{
     public:
-        int getBegin() const;
-        int getDuration() const;
-        int getClassType();
+        Slot(float begin, float duration, string classType);
+        float getBegin() const;
+        float getDuration() const;
+        string getClassType() const;
     private:
-        int begin;
-        int duration;
-        int classType;
+        float begin;
+        float duration;
+        string classType;
 };
 
 
