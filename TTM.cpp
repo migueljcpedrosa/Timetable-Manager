@@ -164,6 +164,8 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
             if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity)
             {
                 itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
+                auto mapUcClassNumberSudentsit = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
+                mapUcClassNumberSudentsit->second++;
             }
             else
             {
