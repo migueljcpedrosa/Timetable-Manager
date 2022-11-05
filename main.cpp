@@ -61,10 +61,11 @@ int main() {
     }
     //TTM::addStudentToClass("202025232", "L.EIC005", "1LEIC07", vectorEstudantes, mapUcClassNumberSudents);
     //TTM::changeStudentToClass("202025232", "L.EIC002", "1LEIC05", "L.EIC023", "3LEIC07", vectorEstudantes, mapUcClassNumberSudents);
-    cout << "Max: " << TTM::maxStudentsinClassFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
-    cout << "Min: " << TTM::minStudentsinClassFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
-    cout << "Imbalance: " << thereIsImbalanceInClassesFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
+    //cout << "Max: " << TTM::maxStudentsinClassFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
+    //cout << "Min: " << TTM::minStudentsinClassFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
+    //cout << "Imbalance: " << thereIsImbalanceInClassesFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
 
+    displayStudentsWithMoreThanNUcs(2, vectorEstudantes, mapUcClassNumberSudents);
     cout << "End";
 
     return 0;

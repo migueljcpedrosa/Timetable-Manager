@@ -108,6 +108,7 @@ namespace TTM {
     */
     bool coincidentTimeSlot(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, Slot> mapUcClassTimeSlot);
 
+    void displayStudentsWithMoreThanNUcs(int n, vector<Estudante> &vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents);
 }
 
 #endif //UNTITLED2_TTM_H
