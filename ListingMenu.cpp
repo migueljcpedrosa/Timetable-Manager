@@ -12,6 +12,8 @@ void ListingMenu::displayListingMenu()
     cout << "[0] " << "Quit" << endl;
     cout << "[1] " << "Display all students" << endl;
     cout << "[2] " << "Display student's schedule" << endl;
+    cout << "[3] " << "Display students with more than n UcClasses (aulas)" << endl;
+    cout << "[4] " << "Display students in a UcClass (aula)" << endl;
 
     cin >> option;
 
@@ -29,7 +31,7 @@ void ListingMenu::displayListingMenu()
         case 1:
             TTM::displayAllStudents(vectorEstudantes);
             break;
-        case 2:
+        case 2: {
             string studentName;
             string upCode;
 
@@ -41,6 +43,23 @@ void ListingMenu::displayListingMenu()
 
             TTM::studentFind(upCode, vectorEstudantes)->displaySchedule(mapUcClassTimeSlot);
             break;
+        }
+        case 3:
+            int n;
+            cout << "Insert number of UCs: " << endl;
+            cin >> n;
+
+            TTM::displayStudentsWithMoreThanNUcClasses(n, vectorEstudantes, mapUcClassNumberSudents);
+            break;
+        case 4:
+            string ucCode, classCode;
+            cout << "Insert UC code: " << endl;
+            cin >> ucCode;
+            cout << "Insert Class code: " << endl;
+            cin >> classCode;
+
+            TTM::displayStudentInUcClass(ucCode, classCode, vectorEstudantes);
+
     }
 
 

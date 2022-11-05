@@ -323,12 +323,12 @@ bool TTM::coincidentTimeSlot(string upCode, string ucCode, string classCode, vec
 }
 
 
-void TTM::displayStudentsWithMoreThanNUcs(int n, vector<Estudante> &vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
+void TTM::displayStudentsWithMoreThanNUcClasses(int n, vector<Estudante> &vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
 {
-    cout << "Students with more than " << n << "UCs:" << endl;
+    cout << "Students with more than " << n << " UCClasses (Aulas):" << endl;
     for (auto itEstudante : vectorEstudantes)
     {
-        if (itEstudante.vectorUcClass.size() / 2 > n)
+        if (itEstudante.vectorUcClass.size() > n)
         {
             cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
         }

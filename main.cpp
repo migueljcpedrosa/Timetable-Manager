@@ -66,7 +66,7 @@ int main() {
     //cout << "Min: " << TTM::minStudentsinClassFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
     //cout << "Imbalance: " << thereIsImbalanceInClassesFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
 
-    displayStudentsWithMoreThanNUcs(2, vectorEstudantes, mapUcClassNumberSudents);
+    displayStudentsWithMoreThanNUcClasses(2, vectorEstudantes, mapUcClassNumberSudents);
 
     displayStudentInUcClass("L.EIC005", "1LEIC07", vectorEstudantes);
 
