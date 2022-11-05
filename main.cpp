@@ -60,7 +60,8 @@ int main() {
         cout << "aaaa" << e.first.first << "; " << e.first.second << "; " << e.second << endl;
     }
     //TTM::addStudentToClass("202025232", "L.EIC005", "1LEIC07", vectorEstudantes, mapUcClassNumberSudents);
-    TTM::changeStudentToClass("202025232", "L.EIC002", "1LEIC05", "L.EIC023", "3LEIC07", vectorEstudantes, mapUcClassNumberSudents);
+    //TTM::changeStudentToClass("202025232", "L.EIC002", "1LEIC05", "L.EIC023", "3LEIC07", vectorEstudantes, mapUcClassNumberSudents);
+    cout << "Max: " << TTM::maxStudentsinClassFromUc("L.EIC002", mapUcClassNumberSudents) << endl;
     cout << "End";
 
     return 0;

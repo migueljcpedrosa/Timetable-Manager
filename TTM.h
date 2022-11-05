@@ -77,6 +77,13 @@ namespace TTM {
     * @param vectorEstudantes a vector that stores all the students
     */
     void sortStudentsByUpCode(vector<Estudante> &vectorEstudantes);
+
+    /** Finds the maximum number of students in any class from a specific Uc
+    * @param ucCode the class's (aula) ucCode
+    * @param vectorEstudantes a map that links each ucClass to it's current student number
+    * @returns the integer value that corresponds to the max student number in any class from the specified Uc
+    */
+    int maxStudentsinClassFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents);
 }
 
 #endif //UNTITLED2_TTM_H

@@ -249,3 +249,21 @@ void TTM::sortStudentsByUpCode(vector<Estudante> &vectorEstudantes) {
                   return x.getUpCode() < y.getUpCode();
               });
 }
+
+int TTM::maxStudentsinClassFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents)
+{
+    map<pair<string, string>, int>::iterator it;
+    int max = -1;
+    for (it = mapUcClassNumberSudents.begin(); it != mapUcClassNumberSudents.end(); it++)
+    {
+        if (it->first.first == ucCode)
+        {
+            if (it->second > max)
+            {
+                max = it->second;
+            }
+        }
+    }
+
+    return max;
+}
