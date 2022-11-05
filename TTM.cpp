@@ -168,16 +168,16 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
 
     if (!studentAlreadyInUcClass)
     {
-        if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity)
+        mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second++; //In case the addition occurs this will be the new occupation value. Will be used to check whether the addition will cause imbalance.
+        if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity + 1 && !thereIsImbalanceInClassesFromUc(ucCode, mapUcClassNumberSudents))
         {
             itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
-            auto mapUcClassNumberSudentsit = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
             //cout << "map: " << mapUcClassNumberSudentsit->second;
-            mapUcClassNumberSudentsit->second++;
             //cout << "map: " << mapUcClassNumberSudentsit->second;
         }
         else
         {
+            mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second--;
             cout << "UcClass' capacity is full. Student couldn't be added." << endl;
         }
     }
