@@ -8,7 +8,7 @@
 
 class UcTurma {
     public:
-        static int ucTurmaCapacity;
+        static int ucTurmaCapacity;/**< An attribute that stores the UcTurma's maximum capacity*/
 };
 
 

@@ -99,10 +99,12 @@ namespace TTM {
     */
     bool thereIsImbalanceInClassesFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents);
 
-    /** Checks whether there's imbalance in the number of students from different classes of the same Uc (if difference between max occupation and min occupation is >= 4)
+    /** Checks whether the class's time slot is coincident with the student's schedule
     * @param ucCode the class's (aula) ucCode
-    * @param vectorEstudantes a map that links each ucClass to it's current student number
-    * @returns boolean value that checks whether there's imbalance in the number of students from different classes of the same Uc
+    * @param classCode the class's (aula) classCode
+    * @param vectorEstudantes a vector that stores all the students
+    * @param mapUcClassTimeSlot a map that links each ucClass to it's respective slot
+    * @returns boolean value that checks whether the class's time slot is coincident with the student's schedule
     */
     bool coincidentTimeSlot(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, Slot> mapUcClassTimeSlot);
 
