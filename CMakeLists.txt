@@ -9,8 +9,10 @@ add_executable(untitled2 main.cpp
         TTM.cpp
         UcTurma.cpp
         BaseMenu.cpp
+        ListingMenu.cpp
         Estudante.h
         Slot.h
         TTM.h
         UcTurma.h
-        BaseMenu.h)
+        BaseMenu.h
+        ListingMenu.h)

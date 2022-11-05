@@ -71,7 +71,7 @@ int main() {
     displayStudentInUcClass("L.EIC005", "1LEIC07", vectorEstudantes);
 
     displayStudentInYear("1", vectorEstudantes);
-    BaseMenu::displayMenu();
+    BaseMenu::displayBaseMenu();
 
     cout << "End";
 

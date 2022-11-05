@@ -10,15 +10,17 @@
 #include "Estudante.h"
 #include "Slot.h"
 #include "TTM.h"
+#include "ListingMenu.h"
 #include <string>
 #include <fstream>
 #include <algorithm>
 #include <utility>
 
+using namespace std;
 
 class BaseMenu {
     public:
-        static void displayMenu();
+        static void displayBaseMenu();
 };
 
 
