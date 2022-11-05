@@ -34,7 +34,7 @@ int main() {
     cout << mySlot.getBegin() << endl;
     return 0;
     */
-    TTM::removeStudentFromClass("202071557", "L.EIC021", "3LEIC04", vectorEstudantes);
+    TTM::removeStudentFromClass("202071557", "L.EIC021", "3LEIC04", vectorEstudantes, mapUcClassTimeSlot);
 
     csvClassesReader(mapUcClassTimeSlot);
     /*

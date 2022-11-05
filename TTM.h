@@ -39,7 +39,7 @@ namespace TTM {
     * @param classCode the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     */
-    void removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante> &vectorEstudantes);
+    void removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante> &vectorEstudantes, map<pair<string, string>, Slot> mapUcClassTimeSlot);
 
     /** Adds Student to Class (Aula)
     * @param upCode the student's upCode
@@ -47,7 +47,7 @@ namespace TTM {
     * @param classCode the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     */
-    void addStudentToClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents);
+    void addStudentToClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents, map<pair<string, string>, Slot> mapUcClassTimeSlot);
 
     /** Changes Student's Class (Aula)
     * @param upCodeChange the student's upCode
@@ -57,7 +57,7 @@ namespace TTM {
     * @param classCodeAdd the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     */
-    void changeStudentToClass(string upCodeChange, string ucCodeRemove, string classCodeRemove, string ucCodeAdd, string classCodeAdd, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents);
+    void changeStudentToClass(string upCodeChange, string ucCodeRemove, string classCodeRemove, string ucCodeAdd, string classCodeAdd, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents, map<pair<string, string>, Slot> mapUcClassTimeSlot);
 
     /** Finds a student with a specific university code in the students' vector
     * @param upCode a student's upCode

@@ -124,7 +124,7 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 }
 
 
-void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes)
+void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, Slot> mapUcClassTimeSlot)
 {
     cout << "Removal operation in course." << "\n";
     vector<Estudante>::iterator itEstudante = TTM::studentFind(upCode, vectorEstudantes);
@@ -148,7 +148,7 @@ void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode,
 }
 
 
-void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
+void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents, map<pair<string, string>, Slot> mapUcClassTimeSlot)
 {
     cout << "Addition operation in course." << "\n";
     vector<Estudante>::iterator itEstudante = TTM::studentFind(upCode, vectorEstudantes);
@@ -169,7 +169,7 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
     if (!studentAlreadyInUcClass)
     {
         mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second++; //In case the addition occurs this will be the new occupation value. Will be used to check whether the addition will cause imbalance.
-        if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity + 1 && !thereIsImbalanceInClassesFromUc(ucCode, mapUcClassNumberSudents))
+        if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity + 1 && !thereIsImbalanceInClassesFromUc(ucCode, mapUcClassNumberSudents) && coincidentTimeSlot(upCode, ucCode, classCode, vectorEstudantes, mapUcClassTimeSlot))
         {
             itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
             //cout << "map: " << mapUcClassNumberSudentsit->second;
@@ -191,14 +191,14 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
 }
 
 
-void TTM::changeStudentToClass(string upCodeChange, string ucCodeRemove, string classCodeRemove, string ucCodeAdd, string classCodeAdd, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
+void TTM::changeStudentToClass(string upCodeChange, string ucCodeRemove, string classCodeRemove, string ucCodeAdd, string classCodeAdd, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents, map<pair<string, string>, Slot> mapUcClassTimeSlot)
 {
     cout << "Change operation in course." << endl;
 
     if (mapUcClassNumberSudents.find(make_pair(ucCodeAdd, classCodeAdd))->second < UcTurma::ucTurmaCapacity)
     {
-        TTM::removeStudentFromClass(upCodeChange, ucCodeRemove, classCodeRemove, vectorEstudantes);
-        TTM::addStudentToClass(upCodeChange, ucCodeAdd, classCodeAdd, vectorEstudantes, mapUcClassNumberSudents);
+        TTM::removeStudentFromClass(upCodeChange, ucCodeRemove, classCodeRemove, vectorEstudantes, mapUcClassTimeSlot);
+        TTM::addStudentToClass(upCodeChange, ucCodeAdd, classCodeAdd, vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
     }
     else
     {
@@ -310,10 +310,10 @@ bool TTM::coincidentTimeSlot(string upCode, string ucCode, string classCode, vec
     for (auto studentUcClassesit : vectorStudentIt->vectorUcClass)
     {
         auto tempUcClassit = mapUcClassTimeSlot.find(make_pair(studentUcClassesit.first, studentUcClassesit.second));
-        if (weekday == tempUcClassit->second.getWeekDay()
+        if (       weekday == tempUcClassit->second.getWeekDay()
                 && begin == tempUcClassit->second.getBegin()
                 && duration == tempUcClassit->second.getDuration()
-                && (classType == "TP" && tempUcClassit->second.getClassType() == "TP"))
+                && (classType == "TP" && tempUcClassit->second.getClassType() == "TP") )
         {
             return true;
         }
