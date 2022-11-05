@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void TTM::csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
+void TTM::csvStudentsClassesReader(vector<Estudante>& vectorEstudantes, map<pair<string, string>, int>& mapUcClassNumberSudents)
 {
     // File variables.
     string studentCode, studentName, ucCode, classCode;
@@ -58,6 +58,16 @@ void TTM::csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
                 vectorEstudantes.push_back(estudanteTemp);
             }
 
+            auto it = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
+            if (it != mapUcClassNumberSudents.end())
+            {
+                it->second++;
+            }
+            else
+            {
+                mapUcClassNumberSudents.insert({make_pair(ucCode, classCode), 1});
+            }
+
             estudanteExists = false;
         }
 
@@ -70,7 +80,7 @@ void TTM::csvStudentsClassesReader(vector<Estudante>& vectorEstudantes)
 }
 
 
-void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot, map<pair<string, string>, int>& mapUcClassNumberSudents)
+void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 { //csv_classes_reader
     // File variables.
 
@@ -103,15 +113,6 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot, m
             Slot tempSlot(weekday, stof(startHour), stof(duration), cType);
             mapUcClassTimeSlot.insert({make_pair(ucCode, classCode), tempSlot});
 
-            auto it = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
-            if (it != mapUcClassNumberSudents.end())
-            {
-                it->second++;
-            }
-            else
-            {
-                mapUcClassNumberSudents.insert({make_pair(ucCode, classCode), 1});
-            }
         }
 
         file.close(); // Closing the file.
@@ -125,6 +126,7 @@ void TTM::csvClassesReader(map<pair<string,string>, Slot>& mapUcClassTimeSlot, m
 
 void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes)
 {
+    cout << "Removal operation in course." << "\n";
     vector<Estudante>::iterator itEstudante = TTM::studentFind(upCode, vectorEstudantes);
 
     cout << "Before UpClass removal:" << "\n";
@@ -148,39 +150,51 @@ void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode,
 
 void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
 {
+    cout << "Addition operation in course." << "\n";
     vector<Estudante>::iterator itEstudante = TTM::studentFind(upCode, vectorEstudantes);
-
-    cout << "Before UpClass removal:" << "\n";
+    bool studentAlreadyInUcClass = false;
+    cout << "Before adding student to the requested class:" << "\n";
     itEstudante->displayUpClasses();
 
     for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
     {
-        if (itEstudante->vectorUcClass[i].first == ucCode && itEstudante->vectorUcClass[i].second == classCode)
+        if (itEstudante->vectorUcClass[i].first == upCode && itEstudante->vectorUcClass[i].second == classCode)
         {
+            studentAlreadyInUcClass = true;
             cout << "The student is already in this UcClass." << endl;
+            break;
+        }
+    }
+
+    if (!studentAlreadyInUcClass)
+    {
+        if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity)
+        {
+            itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
+            auto mapUcClassNumberSudentsit = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
+            cout << "map: " << mapUcClassNumberSudentsit->second;
+            mapUcClassNumberSudentsit->second++;
+            cout << "map: " << mapUcClassNumberSudentsit->second;
         }
         else
         {
-            if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity)
-            {
-                itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
-                auto mapUcClassNumberSudentsit = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
-                mapUcClassNumberSudentsit->second++;
-            }
-            else
-            {
-                cout << "UcClass' capacity is full. Student couldn't be added." << endl;
-            }
+            cout << "UcClass' capacity is full. Student couldn't be added." << endl;
         }
     }
+
     cout << "\n";
-    cout << "After UpClass removal:" << "\n";
+    cout << "After adding student to the requested UcClass:" << "\n";
     itEstudante->displayUpClasses();
 
     cout << "\n";
 
 }
 
+void TTM::changeStudentToClass(string upCodeChange, string ucCodeRemove, string classCodeRemove, string ucCodeAdd, string classCodeAdd, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
+{
+    TTM::removeStudentFromClass(upCodeChange, ucCodeRemove, classCodeRemove, vectorEstudantes);
+    TTM::addStudentToClass(upCodeChange, ucCodeAdd, classCodeAdd, vectorEstudantes, mapUcClassNumberSudents);
+}
 
 vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& vectorEstudantes)
 {
@@ -204,7 +218,7 @@ void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
 {
     for (int i = 0; i < vectorEstudantes.size(); i++)
     {
-        cout << vectorEstudantes[i].getName() << ";" << vectorEstudantes[i].getUpCode() << "\n";
+        cout << vectorEstudantes[i].getName() << "; " << vectorEstudantes[i].getUpCode() << "\n";
     }
 
     cout << "\n";

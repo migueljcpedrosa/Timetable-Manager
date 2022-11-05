@@ -23,7 +23,7 @@ string Estudante::getUpCode() const
 
 void Estudante::displayUpClasses()
 {
-    cout << "Student " << this->name << ";" << this->upCode << "\n";
+    cout << "Student " << this->name << "; " << this->upCode << "\n";
     for (int i = 0; i < vectorUcClass.size(); i++)
     {
         cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << endl;

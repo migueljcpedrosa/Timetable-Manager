@@ -18,8 +18,8 @@ using namespace TTM;
 int main() {
     vector<Estudante> vectorEstudantes;
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
-    csvStudentsClassesReader(vectorEstudantes);
     map<pair<string, string>, int> mapUcClassNumberSudents;
+    csvStudentsClassesReader(vectorEstudantes, mapUcClassNumberSudents);
 
     /*
     Slot mySlot(9.5, 1.5, "T");
@@ -36,7 +36,7 @@ int main() {
     */
     TTM::removeStudentFromClass("202071557", "L.EIC021", "3LEIC04", vectorEstudantes);
 
-    csvClassesReader(mapUcClassTimeSlot, mapUcClassNumberSudents);
+    csvClassesReader(mapUcClassTimeSlot);
     /*
     for (auto const& x: mapUcClassTimeSlot)
     {
@@ -59,6 +59,8 @@ int main() {
     {
         cout << "aaaa" << e.first.first << "; " << e.first.second << "; " << e.second << endl;
     }
+    //TTM::addStudentToClass("202025232", "L.EIC005", "1LEIC07", vectorEstudantes, mapUcClassNumberSudents);
+    TTM::changeStudentToClass("202025232", "L.EIC002", "1LEIC05", "L.EIC005", "1LEIC07", vectorEstudantes, mapUcClassNumberSudents);
     cout << "End";
 
     return 0;

@@ -26,33 +26,43 @@ namespace TTM {
     /** students_classes.csv Reader
     * @param vectorEstudantes a vector that stores all the students
     */
-    void csvStudentsClassesReader(vector<Estudante> &vectorEstudantes);
+    void csvStudentsClassesReader(vector<Estudante> &vectorEstudantes, map<pair<string, string>, int>& mapUcClassNumberSudents);
 
     /** classes.csv Reader
     * @param mapUcClassTimeSlot a map that links each ucClass to it's correspondent timeSlot
     */
-    void csvClassesReader(map<pair<string, string>, Slot> &mapUcClassTimeSlot, map<pair<string, string>, int>& UcClassNumberSudents);
+    void csvClassesReader(map<pair<string, string>, Slot> &mapUcClassTimeSlot);
 
     /** Removes Student from Class (Aula)
-    * @param upCode a student's upCode
+    * @param upCode the student's upCode
     * @param ucCode the class's (aula) ucCode
-    * @param ucCode the class's (aula) classCode
+    * @param classCode the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     */
     void removeStudentFromClass(string upCode, string ucCode, string classCode, vector<Estudante> &vectorEstudantes);
 
     /** Adds Student to Class (Aula)
-    * @param upCode a student's upCode
+    * @param upCode the student's upCode
     * @param ucCode the class's (aula) ucCode
-    * @param ucCode the class's (aula) classCode
+    * @param classCode the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     */
     void addStudentToClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents);
 
+    /** Changes Student's Class (Aula)
+    * @param upCodeChange the student's upCode
+    * @param ucCodeRemove the class's (aula) ucCode
+    * @param classCodeRemove the class's (aula) classCode
+    * @param ucCodeAdd the class's (aula) ucCode
+    * @param classCodeAdd the class's (aula) classCode
+    * @param vectorEstudantes a vector that stores all the students
+    */
+    void changeStudentToClass(string upCodeChange, string ucCodeRemove, string classCodeRemove, string ucCodeAdd, string classCodeAdd, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents);
+
     /** Finds a student with a specific university code in the students' vector
     * @param upCode a student's upCode
     * @param ucCode the class's (aula) ucCode
-    * @param ucCode the class's (aula) classCode
+    * @param classCode the class's (aula) classCode
     * @param vectorEstudantes a vector that stores all the students
     * @returns the iterator that corresponds to the student
     */
