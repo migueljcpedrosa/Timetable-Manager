@@ -115,6 +115,11 @@ namespace TTM {
     */
     void displayStudentsWithMoreThanNUcs(int n, vector<Estudante> &vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents);
 
+    /** Displays students in a certain UcClass (Aula)
+    * @param ucCode the ucCode
+    * @param classCode the classCode
+    * @param vectorEstudantes a vector that stores all the students
+    */
     void displayStudentInUcClass(string ucCode, string classCode, vector<Estudante> &vectorEstudantes);
 }
 

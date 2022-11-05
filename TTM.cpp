@@ -333,6 +333,8 @@ void TTM::displayStudentsWithMoreThanNUcs(int n, vector<Estudante> &vectorEstuda
             cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
         }
     }
+
+    cout << "\n";
 }
 
 void TTM::displayStudentInUcClass(string ucCode, string classCode, vector<Estudante> &vectorEstudantes)
@@ -345,4 +347,6 @@ void TTM::displayStudentInUcClass(string ucCode, string classCode, vector<Estuda
             cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
         }
     }
+
+    cout << "\n";
 }
