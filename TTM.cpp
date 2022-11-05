@@ -158,7 +158,7 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
 
     for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
     {
-        if (itEstudante->vectorUcClass[i].first == upCode && itEstudante->vectorUcClass[i].second == classCode)
+        if (itEstudante->vectorUcClass[i].first == ucCode && itEstudante->vectorUcClass[i].second == classCode)
         {
             studentAlreadyInUcClass = true;
             cout << "The student is already in this UcClass." << endl;
@@ -172,9 +172,9 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
         {
             itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
             auto mapUcClassNumberSudentsit = mapUcClassNumberSudents.find(make_pair(ucCode, classCode));
-            cout << "map: " << mapUcClassNumberSudentsit->second;
+            //cout << "map: " << mapUcClassNumberSudentsit->second;
             mapUcClassNumberSudentsit->second++;
-            cout << "map: " << mapUcClassNumberSudentsit->second;
+            //cout << "map: " << mapUcClassNumberSudentsit->second;
         }
         else
         {
@@ -190,10 +190,21 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
 
 }
 
+
 void TTM::changeStudentToClass(string upCodeChange, string ucCodeRemove, string classCodeRemove, string ucCodeAdd, string classCodeAdd, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
 {
-    TTM::removeStudentFromClass(upCodeChange, ucCodeRemove, classCodeRemove, vectorEstudantes);
-    TTM::addStudentToClass(upCodeChange, ucCodeAdd, classCodeAdd, vectorEstudantes, mapUcClassNumberSudents);
+    cout << "Change operation in course." << endl;
+
+    if (mapUcClassNumberSudents.find(make_pair(ucCodeAdd, classCodeAdd))->second < UcTurma::ucTurmaCapacity)
+    {
+        TTM::removeStudentFromClass(upCodeChange, ucCodeRemove, classCodeRemove, vectorEstudantes);
+        TTM::addStudentToClass(upCodeChange, ucCodeAdd, classCodeAdd, vectorEstudantes, mapUcClassNumberSudents);
+    }
+    else
+    {
+        cout << "Couldn't change student's class." << endl;
+    }
+
 }
 
 vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& vectorEstudantes)
@@ -214,6 +225,7 @@ vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& v
     return itEstudante;
 }
 
+
 void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
 {
     for (int i = 0; i < vectorEstudantes.size(); i++)
@@ -223,6 +235,7 @@ void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
 
     cout << "\n";
 }
+
 
 void TTM::sortStudentsByUpCode(vector<Estudante> &vectorEstudantes) {
     std::sort(vectorEstudantes.begin(), vectorEstudantes.end(),
