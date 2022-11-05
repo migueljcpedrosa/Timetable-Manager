@@ -10,7 +10,6 @@
 #include <utility>
 using namespace std;
 
-
 //#include "aula.h"
 #include <string>
 #include <vector>
@@ -51,8 +50,6 @@ class Estudante {
         */
         void displayUpClasses();
 
-        vector<pair<string, string>> vectorUcClass; /**< A vector of pairs made by a ucCode and a classCode*/
-
         /**
         * Displays the Schedule of a student
         * @param mapUcClassTimeSlot a map that links each ucClass to it's correspondent timeSlot
@@ -60,6 +57,8 @@ class Estudante {
         * @returns void
         */
         void displaySchedule(map<pair<string,string>, Slot>& mapUcClassTimeSlot);
+
+        vector<pair<string, string>> vectorUcClass; /**< A vector of pairs made by a ucCode and a classCode*/
 
     private:
         string name; /**< The student's name*/

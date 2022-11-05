@@ -7,6 +7,8 @@ add_executable(untitled2 main.cpp
         Estudante.cpp
         Slot.cpp
         TTM.cpp
+        UcTurma.cpp
         Estudante.h
         Slot.h
-        TTM.h)
+        TTM.h
+        UcTurma.h)

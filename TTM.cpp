@@ -2,6 +2,7 @@
 // Created by m3ped on 04/11/2022.
 //
 #include "TTM.h"
+#include "UcTurma.h"
 
 using namespace std;
 
@@ -143,6 +144,41 @@ void TTM::removeStudentFromClass(string upCode, string ucCode, string classCode,
     cout << "\n";
 
 }
+
+
+void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
+{
+    vector<Estudante>::iterator itEstudante = TTM::studentFind(upCode, vectorEstudantes);
+
+    cout << "Before UpClass removal:" << "\n";
+    itEstudante->displayUpClasses();
+
+    for (int i = 0; i < itEstudante->vectorUcClass.size(); i++)
+    {
+        if (itEstudante->vectorUcClass[i].first == ucCode && itEstudante->vectorUcClass[i].second == classCode)
+        {
+            cout << "The student is already in this UcClass." << endl;
+        }
+        else
+        {
+            if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity)
+            {
+                itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
+            }
+            else
+            {
+                cout << "UcClass' capacity is full. Student couldn't be added." << endl;
+            }
+        }
+    }
+    cout << "\n";
+    cout << "After UpClass removal:" << "\n";
+    itEstudante->displayUpClasses();
+
+    cout << "\n";
+
+}
+
 
 vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& vectorEstudantes)
 {
