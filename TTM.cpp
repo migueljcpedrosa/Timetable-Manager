@@ -267,3 +267,23 @@ int TTM::maxStudentsinClassFromUc(string ucCode, map<pair<string, string>, int> 
 
     return max;
 }
+
+
+
+int TTM::minStudentsinClassFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents)
+{
+    map<pair<string, string>, int>::iterator it;
+    int min = INT_MAX;
+    for (it = mapUcClassNumberSudents.begin(); it != mapUcClassNumberSudents.end(); it++)
+    {
+        if (it->first.first == ucCode)
+        {
+            if (it->second < min)
+            {
+                min = it->second;
+            }
+        }
+    }
+
+    return min;
+}
