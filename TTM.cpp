@@ -334,3 +334,15 @@ void TTM::displayStudentsWithMoreThanNUcs(int n, vector<Estudante> &vectorEstuda
         }
     }
 }
+
+void TTM::displayStudentInUcClass(string ucCode, string classCode, vector<Estudante> &vectorEstudantes)
+{
+    cout << "Students in the " << ucCode << "; " << classCode << ": " << endl;
+    for (auto itEstudante : vectorEstudantes)
+    {
+        if ( find(itEstudante.vectorUcClass.begin(), itEstudante.vectorUcClass.end(), make_pair(ucCode, classCode)) != itEstudante.vectorUcClass.end() )
+        {
+            cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
+        }
+    }
+}

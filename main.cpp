@@ -66,6 +66,9 @@ int main() {
     //cout << "Imbalance: " << thereIsImbalanceInClassesFromUc("L.EIC003", mapUcClassNumberSudents) << endl;
 
     displayStudentsWithMoreThanNUcs(2, vectorEstudantes, mapUcClassNumberSudents);
+
+    displayStudentInUcClass("L.EIC005", "1LEIC07", vectorEstudantes);
+
     cout << "End";
 
     return 0;
