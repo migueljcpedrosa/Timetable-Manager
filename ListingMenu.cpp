@@ -9,10 +9,9 @@ void ListingMenu::displayListingMenu()
     int option;
     cout << "LISTING SUBMENU" << "\n";
     cout << "\n";
-    cout << "Click 0 to quit." << "\n";
-    cout << "\n";
+    cout << "[0] " << "Quit" << endl;
     cout << "[1] " << "Display all students" << endl;
-    cout << "[2] " << "Display listings" << endl;
+    cout << "[2] " << "Display student's schedule" << endl;
 
     cin >> option;
 
@@ -20,38 +19,29 @@ void ListingMenu::displayListingMenu()
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
     map<pair<string, string>, int> mapUcClassNumberSudents;
     TTM::csvStudentsClassesReader(vectorEstudantes, mapUcClassNumberSudents);
+    TTM::csvClassesReader(mapUcClassTimeSlot);
 
+    switch(option)  //dependendo da escolha do utilizador
+    {
+        case 0:
+            cout << "Goodbye!" <<endl;
+            break;
+        case 1:
+            TTM::displayAllStudents(vectorEstudantes);
+            break;
+        case 2:
+            string studentName;
+            string upCode;
 
-        switch(option)  //dependendo da escolha do utilizador
-        {
-            case 0:
-                cout << "Goodbye!" <<endl;
-            case 1:
-                TTM::displayAllStudents(vectorEstudantes);
-                break;
-            case 2:
-                //Estudante.Classes();
-            case 3:
-                cout << "Enter class you want to remove:" << endl;
-                string choice1;
-                cin >> choice1;
-                //Student.remove(choice1);
-                cout << "Enter class you want to add:" << endl;
-                string choice2;
-                cin >> choice2;
+            cout << "Insert student name: " << endl;
+            cin >> studentName;
 
-                //Estudante.add(choice2);
+            cout << "Insert university code: " << endl;
+            cin >> upCode;
 
-                /* if(Estudante.add(choice2) == true)
-                 * {
-                 *      cout << "Class added to you schedule successfully!" << endl;
-                 *  }
-                 * else if(Estudante.add(choice2) == false)
-                 *  {
-                 *       cout << "Unable to process request. Class is either full or incompatible with your schedule." << endl;
-                 *  }
-                 *  */
-        }
+            TTM::studentFind(upCode, vectorEstudantes)->displaySchedule(mapUcClassTimeSlot);
+            break;
+    }
 
 
 };
