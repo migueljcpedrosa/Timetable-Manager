@@ -69,6 +69,8 @@ int main() {
 
     displayStudentInUcClass("L.EIC005", "1LEIC07", vectorEstudantes);
 
+    displayStudentInYear("1", vectorEstudantes);
+
     cout << "End";
 
     return 0;

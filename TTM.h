@@ -121,6 +121,14 @@ namespace TTM {
     * @param vectorEstudantes a vector that stores all the students
     */
     void displayStudentInUcClass(string ucCode, string classCode, vector<Estudante> &vectorEstudantes);
+
+    /** Displays students in a certain Year
+    * @param year the year
+    * @param vectorEstudantes a vector that stores all the students
+    */
+    void displayStudentInYear(string year, vector<Estudante> &vectorEstudantes);
+
 }
+
 
 #endif //UNTITLED2_TTM_H

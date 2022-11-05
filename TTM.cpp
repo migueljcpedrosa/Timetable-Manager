@@ -32,7 +32,7 @@ void TTM::csvStudentsClassesReader(vector<Estudante>& vectorEstudantes, map<pair
 
             getline(file, ucCode, ',');
 
-            getline(file, classCode, '\n');;
+            getline(file, classCode, '\n');
 
 
             Estudante estudanteTemp(studentName, studentCode);
@@ -349,4 +349,22 @@ void TTM::displayStudentInUcClass(string ucCode, string classCode, vector<Estuda
     }
 
     cout << "\n";
+}
+
+void TTM::displayStudentInYear(string year, vector<Estudante> &vectorEstudantes)
+{
+    bool studentInYear = false;
+
+    cout << "Students in year " << year << ": " << endl;
+
+    for (auto itEstudante : vectorEstudantes)
+    {
+        for (auto ucClass : itEstudante.vectorUcClass)
+            if (to_string(ucClass.second[0]) == year)
+            {
+                studentInYear = true;
+            }
+        cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
+        studentInYear = false;
+    }
 }
