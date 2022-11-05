@@ -92,6 +92,12 @@ namespace TTM {
     */
     int minStudentsinClassFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents);
 
+    /** Checks whether there's imbalance in the number of students from different classes of the same Uc (if difference between max occupation and min occupation is >= 4)
+    * @param ucCode the class's (aula) ucCode
+    * @param vectorEstudantes a map that links each ucClass to it's current student number
+    * @returns boolean value that checks whether there's imbalance in the number of students from different classes of the same Uc
+    */
+    bool thereIsImbalanceInClassesFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents);
 }
 
 #endif //UNTITLED2_TTM_H

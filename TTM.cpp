@@ -287,3 +287,13 @@ int TTM::minStudentsinClassFromUc(string ucCode, map<pair<string, string>, int> 
 
     return min;
 }
+
+bool TTM::thereIsImbalanceInClassesFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents)
+{
+    if (maxStudentsinClassFromUc(ucCode, mapUcClassNumberSudents) - minStudentsinClassFromUc(ucCode, mapUcClassNumberSudents) >= 4 )
+    {
+        return true;
+    }
+
+    return false;
+}
