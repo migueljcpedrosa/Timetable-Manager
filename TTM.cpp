@@ -297,3 +297,27 @@ bool TTM::thereIsImbalanceInClassesFromUc(string ucCode, map<pair<string, string
 
     return false;
 }
+
+bool TTM::coincidentTimeSlot(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, Slot> mapUcClassTimeSlot)
+{
+    auto mapUcClassTimeSlotIt = mapUcClassTimeSlot.find(make_pair(upCode, ucCode));
+    string weekday = mapUcClassTimeSlotIt->second.getWeekDay();
+    float begin = mapUcClassTimeSlotIt->second.getBegin();
+    float duration = mapUcClassTimeSlotIt->second.getDuration();
+    string classType = mapUcClassTimeSlotIt->second.getClassType();
+
+    auto vectorStudentIt = studentFind(upCode, vectorEstudantes);
+    for (auto studentUcClassesit : vectorStudentIt->vectorUcClass)
+    {
+        auto tempUcClassit = mapUcClassTimeSlot.find(make_pair(studentUcClassesit.first, studentUcClassesit.second));
+        if (weekday == tempUcClassit->second.getWeekDay()
+                && begin == tempUcClassit->second.getBegin()
+                && duration == tempUcClassit->second.getDuration()
+                && (classType == "TP" && tempUcClassit->second.getClassType() == "TP"))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
