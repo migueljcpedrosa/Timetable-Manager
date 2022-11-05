@@ -367,4 +367,6 @@ void TTM::displayStudentInYear(string year, vector<Estudante> &vectorEstudantes)
         cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
         studentInYear = false;
     }
+
+    cout << "\n";
 }

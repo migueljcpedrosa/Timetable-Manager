@@ -4,6 +4,7 @@
 #include "Estudante.h"
 #include "Slot.h"
 #include "TTM.h"
+#include "BaseMenu.h"
 #include <string>
 #include <fstream>
 #include <algorithm>
@@ -70,6 +71,7 @@ int main() {
     displayStudentInUcClass("L.EIC005", "1LEIC07", vectorEstudantes);
 
     displayStudentInYear("1", vectorEstudantes);
+    BaseMenu::displayMenu();
 
     cout << "End";
 
