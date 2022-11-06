@@ -36,6 +36,11 @@ Alterações:
 1.	Remover estudante de turma.
 2.	Adicionar estudante a turma, tendo em conta as condições enunciadas.
 3.	Mudar estudante de turma, tendo em conta as condições enunciadas.
+Pedidos:
+1.	Todos os pedidos de alteração de horário/turma/uc  são guardados numa queuePedidos.
+2.	Após receber todos os pedidos do utilizador, os pedidos serão executados.
+3.	À medida que os pedidos vão sendo executados a queuePedidos é esvaziada.
+4.	Caso algum pedido não possa ser executado, será adicionado a uma queuePedidosFailed para ser revisto.
 
 Funções importantes:
 addStudentToClass()
