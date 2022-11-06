@@ -131,7 +131,9 @@ namespace TTM {
     */
     void displayStudentInYear(string year, vector<Estudante> &vectorEstudantes);
 
-
+    /** Writes changes in students_classes_updated.csv
+    * @param vectorEstudantes a vector that stores all the students
+    */
     void writeStudentsClassesUpdated(vector<Estudante> vectorEstudantes);
 }
 
