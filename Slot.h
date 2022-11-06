@@ -1,5 +1,5 @@
 //
-// Created by m3ped on 03/11/2022.
+// Created by Miguel Pedrosa e Joana Marques on 01/11/2022.
 //
 
 #ifndef UNTITLED2_SLOT_H

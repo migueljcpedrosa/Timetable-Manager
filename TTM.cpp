@@ -1,5 +1,5 @@
 //
-// Created by m3ped on 04/11/2022.
+// Created by Miguel Pedrosa e Joana Marques on 01/11/2022.
 //
 #include "TTM.h"
 #include "UcTurma.h"
