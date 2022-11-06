@@ -9,6 +9,7 @@
 #include <fstream>
 #include <algorithm>
 #include <utility>
+#include <queue>
 
 #define students_classes "../students_classes.csv"
 #define classes "../classes.csv"
@@ -17,6 +18,7 @@ using namespace TTM;
 
 
 int main() {
+
 
     vector<Estudante> vectorEstudantes;
     map<pair<string, string>, Slot> mapUcClassTimeSlot;

@@ -15,3 +15,10 @@ const string PedidoRemove::getUcCode() const {
 const string PedidoRemove::getClassCode() const {
     return classCode;
 }
+
+PedidoRemove::PedidoRemove(const string upCode, const string ucCode, const string classCode)
+{
+    this->upCode = upCode;
+    this->ucCode = ucCode;
+    this->classCode = classCode;
+}

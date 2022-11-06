@@ -22,6 +22,8 @@
 
 class PedidoRemove {
     public:
+        PedidoRemove(const string upCode, const string ucCode, const string classCode);
+
         const string getUpCode() const;
 
         const string getUcCode() const;

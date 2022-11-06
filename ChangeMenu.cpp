@@ -36,7 +36,8 @@ void ChangeMenu::displayChangeMenu()
             cin >> ucCode;
             cout << "Insert UcClass' classCode: " << endl;
             cin >> classCode;
-            TTM::removeStudentFromClass(upCode, ucCode, classCode, vectorEstudantes, mapUcClassTimeSlot);
+            PedidoRemove tempPedidoRemove(upCode, ucCode, classCode);
+            //TTM::removeStudentFromClass(tempPedidoRemove.getUpCode(), tempPedidoRemove.getUcCode(), tempPedidoRemove.getClassCode(), vectorEstudantes, mapUcClassTimeSlot);
 
             break;
         }
