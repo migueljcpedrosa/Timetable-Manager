@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "untitled2.exe"
+			"path" : "ttm_vf_aed.exe"
 		},
 		{
-			"path" : "untitled2.pdb"
+			"path" : "ttm_vf_aed.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -67,7 +67,7 @@
 			]
 		}
 	],
-	"id" : "untitled2::@6890427a1f51a3e7e1df",
+	"id" : "ttm_vf_aed::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -87,8 +87,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "untitled2",
-	"nameOnDisk" : "untitled2.exe",
+	"name" : "ttm_vf_aed",
+	"nameOnDisk" : "ttm_vf_aed.exe",
 	"paths" : 
 	{
 		"build" : ".",

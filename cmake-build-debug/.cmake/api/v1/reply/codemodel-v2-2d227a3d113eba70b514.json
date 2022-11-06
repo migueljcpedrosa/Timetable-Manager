@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "untitled2",
+					"name" : "ttm_vf_aed",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "untitled2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-untitled2-Debug-e71c6d6fc4a6d23e142d.json",
-					"name" : "untitled2",
+					"id" : "ttm_vf_aed::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ttm_vf_aed-Debug-74d4baecc4be7bcc797d.json",
+					"name" : "ttm_vf_aed",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2/cmake-build-debug",
-		"source" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2"
+		"build" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed/cmake-build-debug",
+		"source" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed"
 	},
 	"version" : 
 	{

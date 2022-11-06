@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2/cmake-build-debug"
+			"value" : "c:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -623,7 +623,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2"
+			"value" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -635,7 +635,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/untitled2"
+			"value" : "C:/Program Files (x86)/ttm_vf_aed"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -851,7 +851,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "untitled2"
+			"value" : "ttm_vf_aed"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1230,7 +1230,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "untitled2_BINARY_DIR",
+			"name" : "ttm_vf_aed_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1239,10 +1239,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2/cmake-build-debug"
+			"value" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed/cmake-build-debug"
 		},
 		{
-			"name" : "untitled2_IS_TOP_LEVEL",
+			"name" : "ttm_vf_aed_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1254,7 +1254,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "untitled2_SOURCE_DIR",
+			"name" : "ttm_vf_aed_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2"
+			"value" : "C:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed"
 		}
 	],
 	"kind" : "cache",

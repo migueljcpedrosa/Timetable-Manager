@@ -1,8 +1,8 @@
-# Install script for directory: C:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2
+# Install script for directory: C:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/untitled2")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/ttm_vf_aed")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Miguel/FEUP/2Ano/1Semestre/AED/untitled2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Miguel/FEUP/2Ano/1Semestre/AED/ttm_vf_aed/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
