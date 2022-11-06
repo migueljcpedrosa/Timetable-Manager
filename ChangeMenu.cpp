@@ -119,4 +119,6 @@ void ChangeMenu::displayChangeMenu()
     {
         cout << "Requests not executed. Stored in queue to be executed later." << endl;
     }
+
+    cout << "Exited menu." << endl;
 }

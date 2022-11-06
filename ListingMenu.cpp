@@ -71,5 +71,5 @@ void ListingMenu::displayListingMenu()
             TTM::displayStudentInYear(year, vectorEstudantes);
     }
 
-
+    cout << "Exited menu." << endl;
 };
