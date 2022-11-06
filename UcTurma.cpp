@@ -4,4 +4,4 @@
 
 #include "UcTurma.h"
 
-int UcTurma::ucTurmaCapacity = 30;
+int UcTurma::ucTurmaCapacity = 100;

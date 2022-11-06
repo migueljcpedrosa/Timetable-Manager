@@ -37,22 +37,19 @@ void ChangeMenu::displayChangeMenu()
             cout << "Insert UcClass' classCode: " << endl;
             cin >> classCode;
             TTM::removeStudentFromClass(upCode, ucCode, classCode, vectorEstudantes, mapUcClassTimeSlot);
-            TTM::studentFind(upCode, vectorEstudantes)->displayUpClasses();
 
             break;
         }
         case 2: {
-            string studentName;
-            string upCode;
-
-            cout << "Insert student name: " << endl;
-            cin >> studentName;
-
-            cout << "Insert university code: " << endl;
+            string upCode, ucCode, classCode;
+            cout << "Insert student's upCode: " << endl;
             cin >> upCode;
-
-            TTM::studentFind(upCode, vectorEstudantes)->displaySchedule(mapUcClassTimeSlot);
-            break;
+            cout << "Insert UcClass' ucCode: " << endl;
+            cin >> ucCode;
+            cout << "Insert UcClass' classCode: " << endl;
+            cin >> classCode;
+            TTM::addStudentToClass(upCode, ucCode, classCode, vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
+            TTM::studentFind(upCode, vectorEstudantes)->displayUpClasses();
         }
         case 3:
             int n;
