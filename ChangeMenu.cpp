@@ -37,8 +37,8 @@ void ChangeMenu::displayChangeMenu()
             cin >> ucCode;
             cout << "Insert UcClass' classCode: " << endl;
             cin >> classCode;
-            Pedido tempPedidoRemove(upCode, ucCode, classCode);
-            TTM::removeStudentFromClass(tempPedidoRemove.getUpCodeChange(), tempPedidoRemove.getUcCode1(), tempPedidoRemove.getClassCode1(), vectorEstudantes, mapUcClassTimeSlot);
+            Pedido tempPedidoRemove(upCode, ucCode, classCode, "remove");
+            //TTM::removeStudentFromClass(tempPedidoRemove.getUpCodeChange(), tempPedidoRemove.getUcCode1(), tempPedidoRemove.getClassCode1(), vectorEstudantes, mapUcClassTimeSlot);
             queuePedido.push(tempPedidoRemove);
             cout << queuePedido.size() << endl;
             break;
@@ -51,7 +51,10 @@ void ChangeMenu::displayChangeMenu()
             cin >> ucCode;
             cout << "Insert UcClass' classCode: " << endl;
             cin >> classCode;
-            TTM::addStudentToClass(upCode, ucCode, classCode, vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
+            //TTM::addStudentToClass(upCode, ucCode, classCode, vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
+            Pedido tempPedidoAdd(upCode, ucCode, classCode, "add");
+            queuePedido.push(tempPedidoAdd);
+            cout << queuePedido.size() << endl;
             break;
         }
         case 3:
@@ -66,8 +69,11 @@ void ChangeMenu::displayChangeMenu()
             cin >> classCodeAdd;
             cout << "Insert UcClass to be added classCode: " << endl;
             cin >> classCodeAdd;
-            TTM::changeStudentToClass(upCodeChange, ucCodeRemove, classCodeRemove, ucCodeAdd, classCodeAdd, vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
-            TTM::studentFind(upCodeChange, vectorEstudantes)->displayUpClasses();
+            //TTM::changeStudentToClass(upCodeChange, ucCodeRemove, classCodeRemove, ucCodeAdd, classCodeAdd, vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
+            //TTM::studentFind(upCodeChange, vectorEstudantes)->displayUpClasses();
+            Pedido tempPedidoChange(upCodeChange, ucCodeRemove, classCodeRemove, ucCodeAdd, classCodeAdd, "change");
+            queuePedido.push(tempPedidoChange);
+            cout << queuePedido.size() << endl;
             break;
 }
 }

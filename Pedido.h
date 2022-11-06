@@ -22,9 +22,9 @@
 
 class Pedido {
 public:
-    Pedido(const string upCodeChange, const string ucCode1, const string classCode1);
+    Pedido(const string upCodeChange, const string ucCode1, const string classCode1, string pedidoType);
 
-    Pedido(const string upCodeChange,  const string ucCode1, const string classCode1, const string ucCode2, const string classCode2);
+    Pedido(const string upCodeChange,  const string ucCode1, const string classCode1, const string ucCode2, const string classCode2, string pedidoType);
 
     const string getUpCodeChange() const;
 
@@ -35,6 +35,8 @@ public:
     const string getUcCode2() const;
 
     const string getClassCode2() const;
+
+    const string getPedidoType() const;
 
 private:
     string upCodeChange;

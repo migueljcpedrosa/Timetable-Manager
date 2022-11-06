@@ -72,8 +72,15 @@ int main() {
     displayStudentInUcClass("L.EIC005", "1LEIC07", vectorEstudantes);
 
     displayStudentInYear("1", vectorEstudantes);
-    BaseMenu::displayBaseMenu();
 
+    string execute;
+    BaseMenu::displayBaseMenu();
+    cout << "Execute schedule alteration requests? (yes/no)" << endl;
+    cin >> execute;
+    if (execute == "yes")
+    {
+        //
+    }
     cout << "End";
 
     return 0;
