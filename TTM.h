@@ -20,6 +20,7 @@
 
 #define students_classes "../students_classes.csv"
 #define classes "../classes.csv"
+#define students_classes_updated "../students_classes_updated.csv"
 
 /**
  * A namespace to store the functions that don't belong to any specific class
@@ -130,6 +131,8 @@ namespace TTM {
     */
     void displayStudentInYear(string year, vector<Estudante> &vectorEstudantes);
 
+
+    void writeStudentsClassesUpdated(vector<Estudante> vectorEstudantes);
 }
 
 

@@ -387,3 +387,17 @@ void TTM::displayStudentInYear(string year, vector<Estudante> &vectorEstudantes)
 
 
 }
+
+void TTM::writeStudentsClassesUpdated(vector<Estudante> vectorEstudantes)
+{
+    ofstream file(students_classes_updated);
+
+    file << "UpCode,StudentName,UcCode,ClassCode" << "\n";
+    for(Estudante estudanteTemp : vectorEstudantes)
+    {
+        for(auto ucClassTemp : estudanteTemp.vectorUcClass)
+        {
+            file << estudanteTemp.getUpCode() << "," << estudanteTemp.getName() << "," << ucClassTemp.first << "," << ucClassTemp.second << "\n";
+        }
+    }
+}

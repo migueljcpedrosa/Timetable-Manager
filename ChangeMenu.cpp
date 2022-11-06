@@ -121,4 +121,6 @@ void ChangeMenu::displayChangeMenu()
     }
 
     cout << "Exited menu." << endl;
+
+    TTM::writeStudentsClassesUpdated(vectorEstudantes);
 }
