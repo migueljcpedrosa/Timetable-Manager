@@ -6,7 +6,6 @@
 #define UNTITLED2_LISTINGMENU_H
 
 #include "BaseMenu.h"
-
 class ListingMenu {
     public:
         static void displayListingMenu();

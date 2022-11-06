@@ -36,48 +36,54 @@ void Estudante::displayUpClasses()
 void Estudante::displaySchedule(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 {
     cout << "Student " << this->name << ";" << this->upCode << "\n";
+    for (int i = 0; i < vectorUcClass.size(); i++)
+    {
+        auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second});
+        if (it->second.getWeekDay() == "Monday")
+        {
+            cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
+            cout << it->second.getWeekDay() << "; " << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+        }
+    }
 
     for (int i = 0; i < vectorUcClass.size(); i++)
     {
-        /*
-        cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
-        auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second}); //finds key pair <uccode, ucclass> position in map
+        auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second});
+        if (it->second.getWeekDay() == "Tuesday")
+        {
+            cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
+            cout << it->second.getWeekDay() << "; "  << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+        }
+    }
 
-        //************************** PSEUDO-CODE para fazer sorting das slotes de aulas por dia da semana ****************************+*******************
+    for (int i = 0; i < vectorUcClass.size(); i++)
+    {
+        auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second});
+        if (it->second.getWeekDay() == "Wednesday")
+        {
+            cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
+            cout << it->second.getWeekDay() << "; " << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+        }
+    }
 
-         map<int, Slot> orderSlots;         //------> criar uma mapa ordenado pela key (1-5), imprimir apenas segundo elemento (slot de horario)
-          for(auto el: mapUcClassTimeSlot){  //  -------> fazer loop dos el (corresponde a elemento do mapa  mapUcClassTimeSlot)
-               if(el.second.getWeekDay()=="Monday") // ----> se o 2o elemento de mapUcClassTimeSlot (slot de horario) for segunda, mapear elemento segunda a key = 1
-               {
-                   orderSlots[1]=el.second;
-                }
-                else if(el.second.getWeekDay()=="Tuesday")
-                {
-                   orderSlots[2]=el.second;
-                }
-                else if(el.second.getWeekDay()=="Wednesday")
-                {
-                   orderSlots[3]=el.second;
-                }
-                else if(el.second.getWeekDay()=="Thursday")
-                {
-                   orderSlots[4]=el.second;
-                }
-                else if(el.second.getWeekDay()=="Friday")
-                {
-                   orderSlots[5]=el.second;
-                }
-           }
+    for (int i = 0; i < vectorUcClass.size(); i++)
+    {
+        auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second});
+        if (it->second.getWeekDay() == "Thursday")
+        {
+            cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
+            cout << it->second.getWeekDay() << "; "  << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+        }
+    }
 
-           for(auto el: orderSlots) {
-               cout << el.second.getWeekDay() << "; " << el.second.getBegin() << "; " << el.second.getDuration() << "; " << el.second.getClassType() << endl;
-           }
-
-           //***************************************END OF PSEUDO-CODE****************************************************************
-
-        cout << it->second.getWeekDay() << "; " << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
-    */
-         }
-
+    for (int i = 0; i < vectorUcClass.size(); i++)
+    {
+        auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second});
+        if (it->second.getWeekDay() == "Friday")
+        {
+            cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
+            cout << it->second.getWeekDay() << "; " << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+        }
+    }
     cout << "\n";
 }
