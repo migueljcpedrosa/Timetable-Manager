@@ -21,10 +21,25 @@ Um mapUcClassNumberStudents, que faz corresponder a cada UcClass ( par (ucCode, 
 Uma queuePedido (FIFO), que armazena objetos do tipo Pedido (com os inputs inseridos pelo utilizador) para executar mais tarde.
 Um queue PedidoFailed, (FIFO) que armazena os objetos do tipo Pedido (com os inputs inseridos pelo utilizador) que se encontravam anteriormente na queuePedido e que não foram executados.
 
+Funcionalidades:
+Leitura:
+1.	Leitura dos ficheiros csv
+Escrita:
+1.	Leitura de um novo ficheiros csv com as alterações
+Listagens:
+1.	Display de todos os estudantes ordenados por alfabeticamente.
+2.	Display do horário ordenado de um estudantes.
+3.	Display de todos os estudantes inscritos em mais de n aulas (UcClasses)
+4.	Display de todos os estudantes numa aulas (UcClass)
+5.	Display de todos os estudantes num certo ano.
+Alterações:
+1.	Remover estudante de turma.
+2.	Adicionar estudante a turma, tendo em conta as condições enunciadas.
+3.	Mudar estudante de turma, tendo em conta as condições enunciadas.
+
 Funções importantes:
 addStudentToClass()
 1.	Imprime as turmas em que o estudante estava inscrito antes da alteração
-
 2.	Percorre  a lista de UcClasses do estudante para verificar se ele já estava inscrito nessa aula.
 3.	Se o estudante ainda não estiver inscrito nessa aula:
   a.	Verifica se a operação não vai exceder a capacidade da turma
