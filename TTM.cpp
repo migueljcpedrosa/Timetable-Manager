@@ -169,7 +169,7 @@ void TTM::addStudentToClass(string upCode, string ucCode, string classCode, vect
     if (!studentAlreadyInUcClass)
     {
         mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second++; //In case the addition occurs this will be the new occupation value. Will be used to check whether the addition will cause imbalance.
-        if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity + 1 /*&& !thereIsImbalanceInClassesFromUc(ucCode, mapUcClassNumberSudents) && !coincidentTimeSlot(upCode, ucCode, classCode, vectorEstudantes, mapUcClassTimeSlot)*/)
+        if (mapUcClassNumberSudents.find(make_pair(ucCode, classCode))->second < UcTurma::ucTurmaCapacity + 1 && !thereIsImbalanceInClassesFromUc(ucCode, mapUcClassNumberSudents) && !coincidentTimeSlot(upCode, ucCode, classCode, vectorEstudantes, mapUcClassTimeSlot))
         {
             itEstudante->vectorUcClass.push_back(make_pair(ucCode, classCode));
             //cout << "map: " << mapUcClassNumberSudentsit->second;
@@ -291,6 +291,8 @@ int TTM::minStudentsinClassFromUc(string ucCode, map<pair<string, string>, int> 
 
 bool TTM::thereIsImbalanceInClassesFromUc(string ucCode, map<pair<string, string>, int> mapUcClassNumberSudents)
 {
+    cout <<"Max"<< maxStudentsinClassFromUc(ucCode, mapUcClassNumberSudents) << endl;
+    cout <<"Min"<< minStudentsinClassFromUc(ucCode, mapUcClassNumberSudents) << endl;
     if (maxStudentsinClassFromUc(ucCode, mapUcClassNumberSudents) - minStudentsinClassFromUc(ucCode, mapUcClassNumberSudents) >= 4 )
     {
         return true;
@@ -301,7 +303,7 @@ bool TTM::thereIsImbalanceInClassesFromUc(string ucCode, map<pair<string, string
 
 bool TTM::coincidentTimeSlot(string upCode, string ucCode, string classCode, vector<Estudante>& vectorEstudantes, map<pair<string, string>, Slot> mapUcClassTimeSlot)
 {
-    auto mapUcClassTimeSlotIt = mapUcClassTimeSlot.find(make_pair(upCode, ucCode));
+    auto mapUcClassTimeSlotIt = mapUcClassTimeSlot.find(make_pair(ucCode, classCode));
     string weekday = mapUcClassTimeSlotIt->second.getWeekDay();
     float begin = mapUcClassTimeSlotIt->second.getBegin();
     float duration = mapUcClassTimeSlotIt->second.getDuration();
