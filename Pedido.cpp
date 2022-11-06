@@ -34,6 +34,7 @@ Pedido::Pedido(const string upCodeChange, const string ucCodeRemove, const strin
     this->upCodeChange = upCodeChange;
     this->ucCode1 = ucCodeRemove;
     this->classCode1 = classCodeRemove;
+    this->pedidoType = pedidoType;
 }
 
 Pedido::Pedido(const string upCodeChange,  const string ucCodeRemove, const string classCodeRemove, const string ucCodeAdd, const string classCodeAdd, string pedidoType)
@@ -43,4 +44,5 @@ Pedido::Pedido(const string upCodeChange,  const string ucCodeRemove, const stri
     this->classCode1 = classCodeRemove;
     this->ucCode2 = ucCodeAdd;
     this->classCode2 = classCodeAdd;
+    this->pedidoType = pedidoType;
 }

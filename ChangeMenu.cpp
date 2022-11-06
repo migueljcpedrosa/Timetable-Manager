@@ -39,7 +39,6 @@ void ChangeMenu::displayChangeMenu()
             Pedido tempPedidoRemove(upCode, ucCode, classCode, "remove");
             //TTM::removeStudentFromClass(tempPedidoRemove.getUpCodeChange(), tempPedidoRemove.getUcCode1(), tempPedidoRemove.getClassCode1(), vectorEstudantes, mapUcClassTimeSlot);
             queuePedido.push(tempPedidoRemove);
-            cout << queuePedido.size() << endl;
             break;
         }
         case 2: {
@@ -53,7 +52,6 @@ void ChangeMenu::displayChangeMenu()
             //TTM::addStudentToClass(upCode, ucCode, classCode, vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
             Pedido tempPedidoAdd(upCode, ucCode, classCode, "add");
             queuePedido.push(tempPedidoAdd);
-            cout << queuePedido.size() << endl;
             break;
         }
         case 3:
@@ -72,7 +70,6 @@ void ChangeMenu::displayChangeMenu()
             //TTM::studentFind(upCodeChange, vectorEstudantes)->displayUpClasses();
             Pedido tempPedidoChange(upCodeChange, ucCodeRemove, classCodeRemove, ucCodeAdd, classCodeAdd, "change");
             queuePedido.push(tempPedidoChange);
-            cout << queuePedido.size() << endl;
             break;
 }
 
@@ -83,6 +80,26 @@ void ChangeMenu::displayChangeMenu()
         if(queuePedido.front().getPedidoType() == "remove")
         {
             TTM::removeStudentFromClass(queuePedido.front().getUpCodeChange(), queuePedido.front().getUcCode1(), queuePedido.front().getClassCode1(), vectorEstudantes, mapUcClassTimeSlot);
+            queuePedido.pop();
         }
+        else if(queuePedido.front().getPedidoType() == "add")
+        {
+            TTM::addStudentToClass(queuePedido.front().getUpCodeChange(), queuePedido.front().getUcCode1(), queuePedido.front().getClassCode1(), vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
+            queuePedido.pop();
+        }
+        else if (queuePedido.front().getPedidoType() == "change")
+        {
+            TTM::changeStudentToClass(queuePedido.front().getUpCodeChange(), queuePedido.front().getUcCode1(), queuePedido.front().getClassCode1(), queuePedido.front().getUcCode2(), queuePedido.front().getClassCode2(), vectorEstudantes, mapUcClassNumberSudents, mapUcClassTimeSlot);
+            queuePedido.pop();
+        }
+        else
+        {
+            cout << "Error: invalid request, coud not perform operation." << endl;
+            queuePedido.pop();
+        }
+    }
+    else if (execute == "no")
+    {
+        cout << "Requests not executed. Stored in queue to be executed later." << endl;
     }
 }
