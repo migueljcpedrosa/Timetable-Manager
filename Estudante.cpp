@@ -36,8 +36,10 @@ void Estudante::displayUpClasses()
 void Estudante::displaySchedule(map<pair<string,string>, Slot>& mapUcClassTimeSlot)
 {
     cout << "Student " << this->name << ";" << this->upCode << "\n";
+
     for (int i = 0; i < vectorUcClass.size(); i++)
     {
+        /*
         cout << vectorUcClass[i].first << "; " << vectorUcClass[i].second << ": ";
         auto it = mapUcClassTimeSlot.find({vectorUcClass[i].first, vectorUcClass[i].second}); //finds key pair <uccode, ucclass> position in map
 
@@ -66,32 +68,16 @@ void Estudante::displaySchedule(map<pair<string,string>, Slot>& mapUcClassTimeSl
                    orderSlots[5]=el.second;
                 }
            }
+
            for(auto el: orderSlots) {
                cout << el.second.getWeekDay() << "; " << el.second.getBegin() << "; " << el.second.getDuration() << "; " << el.second.getClassType() << endl;
            }
 
            //***************************************END OF PSEUDO-CODE****************************************************************
 
-        //cout << it->second.getWeekDay() << "; " << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
-    }
+        cout << it->second.getWeekDay() << "; " << it->second.getBegin() << "; " << it->second.getDuration() << "; " << it->second.getClassType() << "\n";
+    */
+         }
 
     cout << "\n";
 }
-/*
-void Estudante::readStudent(const string& filename){
-
-    ifstream in(filename); // Opens the file.
-    string upCode, name, skipline;
-
-    getline(in, skipline); //skips first line
-
-
-    while(!in.eof()){
-        getline(in, upCode, ',');
-        getline(in, name, ',');
-        cout << upCode << ' ' << name << endl;
-    }
-
-    //in.close(); // Closing the file.
-}
-*/
