@@ -3,6 +3,7 @@
 //
 
 #include "ChangeMenu.h"
+#include "queue.h"
 
 void ChangeMenu::displayChangeMenu()
 {
@@ -38,7 +39,8 @@ void ChangeMenu::displayChangeMenu()
             cin >> classCode;
             Pedido tempPedidoRemove(upCode, ucCode, classCode);
             TTM::removeStudentFromClass(tempPedidoRemove.getUpCodeChange(), tempPedidoRemove.getUcCode1(), tempPedidoRemove.getClassCode1(), vectorEstudantes, mapUcClassTimeSlot);
-
+            queuePedido.push(tempPedidoRemove);
+            cout << queuePedido.size() << endl;
             break;
         }
         case 2: {

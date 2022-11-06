@@ -20,4 +20,5 @@ add_executable(untitled2 main.cpp
         ListingMenu.h
         ChangeMenu.h
         Pedido.h
+        queue.h
         )

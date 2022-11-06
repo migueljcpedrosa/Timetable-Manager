@@ -122,7 +122,8 @@
 				13,
 				14,
 				15,
-				16
+				16,
+				17
 			]
 		}
 	],
@@ -220,6 +221,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "Pedido.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "queue.h",
 			"sourceGroupIndex" : 1
 		}
 	],

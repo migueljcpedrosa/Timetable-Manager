@@ -42,6 +42,7 @@ private:
     string classCode1;
     string ucCode2;
     string classCode2;
+    string pedidoType; //remove, add, change
 
 };
 
