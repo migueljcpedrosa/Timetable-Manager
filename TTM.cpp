@@ -359,15 +359,15 @@ void TTM::displayStudentInYear(string year, vector<Estudante> &vectorEstudantes)
     sortStudentsByName(vectorEstudantes);
     bool studentInYear = false;
 
-    string a;
+    string tempClassCode;
     cout << "Students in year " << year << ": " << endl;
 
     for (auto itEstudante : vectorEstudantes)
     {
         for (auto ucClass : itEstudante.vectorUcClass)
         {
-            a = ucClass.second;
-            if (a.compare(0,1,year) == 0)
+            tempClassCode = ucClass.second;
+            if (tempClassCode.compare(0,1,year) == 0)
             {
                 studentInYear = true;
                 //cout << "inside";
