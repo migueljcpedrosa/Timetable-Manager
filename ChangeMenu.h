@@ -6,6 +6,9 @@
 #define UNTITLED2_CHANGEMENU_H
 
 #include "BaseMenu.h"
+#include "PedidoRemove.h"
+#include "PedidoAdd.h"
+#include "PedidoChange.h"
 
 
 class ChangeMenu {

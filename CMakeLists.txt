@@ -11,10 +11,16 @@ add_executable(untitled2 main.cpp
         BaseMenu.cpp
         ListingMenu.cpp
         ChangeMenu.cpp
+        PedidoAdd.cpp
+        PedidoChange.cpp
+        PedidoRemove.cpp
         Estudante.h
         Slot.h
         TTM.h
         UcTurma.h
         BaseMenu.h
         ListingMenu.h
-        ChangeMenu.h)
+        ChangeMenu.h
+        PedidoAdd.h
+        PedidoChange.h
+        PedidoRemove.h)
