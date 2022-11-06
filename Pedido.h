@@ -18,7 +18,9 @@
 #include <fstream>
 #include <algorithm>
 #include <utility>
+#include <queue>
 
+using namespace std;
 
 class Pedido {
 public:
@@ -37,6 +39,7 @@ public:
     const string getClassCode2() const;
 
     const string getPedidoType() const;
+
 
 private:
     string upCodeChange;

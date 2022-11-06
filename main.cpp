@@ -75,12 +75,6 @@ int main() {
 
     string execute;
     BaseMenu::displayBaseMenu();
-    cout << "Execute schedule alteration requests? (yes/no)" << endl;
-    cin >> execute;
-    if (execute == "yes")
-    {
-        //
-    }
     cout << "End";
 
     return 0;

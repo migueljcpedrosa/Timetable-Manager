@@ -11,10 +11,12 @@
 #include "Estudante.h"
 #include "Slot.h"
 #include "TTM.h"
+#include "Pedido.h"
 #include <string>
 #include <fstream>
 #include <algorithm>
 #include <utility>
+#include <queue>
 
 #define students_classes "../students_classes.csv"
 #define classes "../classes.csv"

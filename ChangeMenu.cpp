@@ -3,11 +3,12 @@
 //
 
 #include "ChangeMenu.h"
-#include "queue.h"
+#include <queue>
 
 void ChangeMenu::displayChangeMenu()
 {
     int option;
+    string execute;
     cout << "CHANGE SUBMENU" << "\n";
     cout << "\n";
     cout << "[0] " << "Quit" << endl;
@@ -17,6 +18,7 @@ void ChangeMenu::displayChangeMenu()
 
     cin >> option;
 
+    queue<Pedido> queuePedido;
     vector<Estudante> vectorEstudantes;
     TTM::sortStudentsByName(vectorEstudantes);
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
@@ -26,9 +28,6 @@ void ChangeMenu::displayChangeMenu()
 
     switch(option)  //dependendo da escolha do utilizador
     {
-        case 0:
-            cout << "Goodbye!" <<endl;
-            break;
         case 1: {
             string upCode, ucCode, classCode;
             cout << "Insert student's upCode: " << endl;
@@ -76,4 +75,14 @@ void ChangeMenu::displayChangeMenu()
             cout << queuePedido.size() << endl;
             break;
 }
+
+    cout << "Execute schedule alteration requests? (yes/no)" << endl;
+    cin >> execute;
+    if (execute == "yes")
+    {
+        if(queuePedido.front().getPedidoType() == "remove")
+        {
+            TTM::removeStudentFromClass(queuePedido.front().getUpCodeChange(), queuePedido.front().getUcCode1(), queuePedido.front().getClassCode1(), vectorEstudantes, mapUcClassTimeSlot);
+        }
+    }
 }
