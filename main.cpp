@@ -19,7 +19,6 @@ using namespace TTM;
 
 int main() {
 
-
     vector<Estudante> vectorEstudantes;
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
     map<pair<string, string>, int> mapUcClassNumberSudents;
