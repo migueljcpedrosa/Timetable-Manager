@@ -8,8 +8,13 @@
 #include "BaseMenu.h"
 #include "Pedido.h"
 
+/**
+ * A class to store the general information about the Change Menu (Menu Alterações de Horario)
+ */
 class ChangeMenu {
     public:
+        /** Displays ChangeMenu
+        */
         static void displayChangeMenu();
 };
 

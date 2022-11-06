@@ -20,6 +20,9 @@
 
 using namespace std;
 
+/**
+ * A class to store the general information about the Base Menu (Menu Principal)
+ */
 class BaseMenu {
     public:
         static void displayBaseMenu();

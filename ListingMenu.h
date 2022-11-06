@@ -6,8 +6,14 @@
 #define UNTITLED2_LISTINGMENU_H
 
 #include "BaseMenu.h"
+
+/**
+ * A class to store the general information about the ListingMenu (Menu Listagens)
+ */
 class ListingMenu {
     public:
+        /** Displays ListingMenu
+        */
         static void displayListingMenu();
 };
 

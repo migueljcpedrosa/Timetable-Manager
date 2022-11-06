@@ -34,12 +34,7 @@ void ListingMenu::displayListingMenu()
             TTM::displayAllStudents(vectorEstudantes);
             break;
         case 2: {
-            string studentName;
             string upCode;
-
-            cout << "Insert student name: " << endl;
-            cin >> studentName;
-
             cout << "Insert university code: " << endl;
             cin >> upCode;
 
