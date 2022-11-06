@@ -17,6 +17,7 @@ using namespace TTM;
 
 
 int main() {
+
     vector<Estudante> vectorEstudantes;
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
     map<pair<string, string>, int> mapUcClassNumberSudents;
@@ -48,7 +49,7 @@ int main() {
     //cout << vectorEstudantes[0].getUpCode();
      */
     //displayAllStudents(vectorEstudantes);
-    sortStudentsByUpCode(vectorEstudantes);
+    sortStudentsByName(vectorEstudantes);
     displayAllStudents(vectorEstudantes);
     vectorEstudantes[3].displaySchedule(mapUcClassTimeSlot);
     //cout <<vectorEstudantes[vectorEstudantes.size() - 3].getName();

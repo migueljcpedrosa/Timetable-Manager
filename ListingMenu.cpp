@@ -14,10 +14,12 @@ void ListingMenu::displayListingMenu()
     cout << "[2] " << "Display student's schedule" << endl;
     cout << "[3] " << "Display students with more than n UcClasses (aulas)" << endl;
     cout << "[4] " << "Display students in a UcClass (aula)" << endl;
+    cout << "[5] " << "Display students in a specific study year" << endl;
 
     cin >> option;
 
     vector<Estudante> vectorEstudantes;
+    TTM::sortStudentsByName(vectorEstudantes);
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
     map<pair<string, string>, int> mapUcClassNumberSudents;
     TTM::csvStudentsClassesReader(vectorEstudantes, mapUcClassNumberSudents);
@@ -51,7 +53,7 @@ void ListingMenu::displayListingMenu()
 
             TTM::displayStudentsWithMoreThanNUcClasses(n, vectorEstudantes, mapUcClassNumberSudents);
             break;
-        case 4:
+        case 4: {
             string ucCode, classCode;
             cout << "Insert UC code: " << endl;
             cin >> ucCode;
@@ -59,6 +61,16 @@ void ListingMenu::displayListingMenu()
             cin >> classCode;
 
             TTM::displayStudentInUcClass(ucCode, classCode, vectorEstudantes);
+        }
+        case 5:
+            string year;
+
+            cout << "Insert year: " << endl;
+            cin >> year;
+
+            TTM::displayStudentInYear(year, vectorEstudantes);
+
+
 
     }
 

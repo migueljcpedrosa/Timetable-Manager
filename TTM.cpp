@@ -228,6 +228,7 @@ vector<Estudante>::iterator TTM::studentFind(string upCode, vector<Estudante>& v
 
 void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
 {
+    TTM::sortStudentsByName(vectorEstudantes);
     for (int i = 0; i < vectorEstudantes.size(); i++)
     {
         cout << vectorEstudantes[i].getName() << "; " << vectorEstudantes[i].getUpCode() << "\n";
@@ -237,16 +238,16 @@ void TTM::displayAllStudents(vector<Estudante>& vectorEstudantes)
 }
 
 
-void TTM::sortStudentsByUpCode(vector<Estudante> &vectorEstudantes) {
+void TTM::sortStudentsByName(vector<Estudante> &vectorEstudantes) {
     std::sort(vectorEstudantes.begin(), vectorEstudantes.end(),
               [](const Estudante &x, const Estudante &y) {
 // compare last names first
-                  if (x.getUpCode() != y.getUpCode()) {
-                      return x.getUpCode() < y.getUpCode();
+                  if (x.getName() != y.getName()) {
+                      return x.getName() < y.getName();
                   }
 
 // compare first names only if the last names are equal
-                  return x.getUpCode() < y.getUpCode();
+                  return x.getName() < y.getName();
               });
 }
 
@@ -325,6 +326,7 @@ bool TTM::coincidentTimeSlot(string upCode, string ucCode, string classCode, vec
 
 void TTM::displayStudentsWithMoreThanNUcClasses(int n, vector<Estudante> &vectorEstudantes, map<pair<string, string>, int> mapUcClassNumberSudents)
 {
+    TTM::sortStudentsByName(vectorEstudantes);
     cout << "Students with more than " << n << " UCClasses (Aulas):" << endl;
     for (auto itEstudante : vectorEstudantes)
     {
@@ -339,6 +341,7 @@ void TTM::displayStudentsWithMoreThanNUcClasses(int n, vector<Estudante> &vector
 
 void TTM::displayStudentInUcClass(string ucCode, string classCode, vector<Estudante> &vectorEstudantes)
 {
+    TTM::sortStudentsByName(vectorEstudantes);
     cout << "Students in the " << ucCode << "; " << classCode << ": " << endl;
     for (auto itEstudante : vectorEstudantes)
     {
@@ -353,20 +356,32 @@ void TTM::displayStudentInUcClass(string ucCode, string classCode, vector<Estuda
 
 void TTM::displayStudentInYear(string year, vector<Estudante> &vectorEstudantes)
 {
+    sortStudentsByName(vectorEstudantes);
     bool studentInYear = false;
 
+    string a;
     cout << "Students in year " << year << ": " << endl;
 
     for (auto itEstudante : vectorEstudantes)
     {
         for (auto ucClass : itEstudante.vectorUcClass)
-            if (to_string(ucClass.second[0]) == year)
+        {
+            a = ucClass.second;
+            if (a.compare(0,1,year) == 0)
             {
                 studentInYear = true;
+                //cout << "inside";
+                break;
             }
-        cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
-        studentInYear = false;
+            //cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
+            studentInYear = false;
+        }
+
+        if (studentInYear)
+        {
+            cout << itEstudante.getName() << "; " << itEstudante.getUpCode() << endl;
+        }
     }
 
-    cout << "\n";
+
 }

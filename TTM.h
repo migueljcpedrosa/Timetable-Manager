@@ -73,10 +73,10 @@ namespace TTM {
     */
     void displayAllStudents(vector<Estudante> &vectorEstudantes);
 
-    /** Sorts the students in a students' vector by their university code
+    /** Sorts the students in a students' vector by their name
     * @param vectorEstudantes a vector that stores all the students
     */
-    void sortStudentsByUpCode(vector<Estudante> &vectorEstudantes);
+    void sortStudentsByName(vector<Estudante> &vectorEstudantes);
 
     /** Finds the maximum number of students in any class from a specific Uc
     * @param ucCode the class's (aula) ucCode
