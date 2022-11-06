@@ -16,8 +16,16 @@ void BaseMenu::displayBaseMenu()
 
     cin >> option;
 
-    if (option == 2)
+    if (option == 1)
+    {
+        ChangeMenu::displayChangeMenu();
+    }
+    else if (option == 2)
     {
         ListingMenu::displayListingMenu();
+    }
+    else
+    {
+        cout << "Invalid input." << endl;
     }
 }

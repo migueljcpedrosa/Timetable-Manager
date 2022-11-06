@@ -10,6 +10,8 @@
 #include "Estudante.h"
 #include "Slot.h"
 #include "TTM.h"
+#include "BaseMenu.h"
+#include "ChangeMenu.h"
 #include "ListingMenu.h"
 #include <string>
 #include <fstream>

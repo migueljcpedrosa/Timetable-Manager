@@ -69,9 +69,6 @@ void ListingMenu::displayListingMenu()
             cin >> year;
 
             TTM::displayStudentInYear(year, vectorEstudantes);
-
-
-
     }
 
 
