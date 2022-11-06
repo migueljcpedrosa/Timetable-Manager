@@ -7,17 +7,8 @@
 
 void ChangeMenu::displayChangeMenu()
 {
-    int option;
-    string execute;
-    cout << "CHANGE SUBMENU" << "\n";
-    cout << "\n";
-    cout << "[0] " << "Quit" << endl;
-    cout << "[1] " << "Remove student from UcClass (aula)" << endl;
-    cout << "[2] " << "Add student to UcClass (aula)" << endl;
-    cout << "[3] " << "Change student's UcClass (aula)" << endl;
-
-
     queue<Pedido> queuePedido;
+    queue<Pedido> queuePedidoFailed;
     vector<Estudante> vectorEstudantes;
     TTM::sortStudentsByName(vectorEstudantes);
     map<pair<string, string>, Slot> mapUcClassTimeSlot;
@@ -25,11 +16,27 @@ void ChangeMenu::displayChangeMenu()
     TTM::csvStudentsClassesReader(vectorEstudantes, mapUcClassNumberSudents);
     TTM::csvClassesReader(mapUcClassTimeSlot);
 
-    for (int i = 0; i <= 1; i++)
+    string execute;
+    int option;
+
+    int quit = 0;
+    while (quit != 1)
     {
+        cout << "CHANGE SUBMENU" << "\n";
+        cout << "\n";
+        cout << "[0] " << "Quit" << endl;
+        cout << "[1] " << "Remove student from UcClass (aula)" << endl;
+        cout << "[2] " << "Add student to UcClass (aula)" << endl;
+        cout << "[3] " << "Change student's UcClass (aula)" << endl;
+
+
         cin >> option;
         switch(option)  //dependendo da escolha do utilizador
         {
+            case 0:
+                cout << "No more requests to input." << endl;
+                quit = 1;
+                break;
             case 1: {
                 string upCode, ucCode, classCode;
                 cout << "Insert student's upCode: " << endl;
@@ -102,6 +109,7 @@ void ChangeMenu::displayChangeMenu()
             else
             {
                 cout << "Error: invalid request, coud not perform operation." << endl;
+                queuePedidoFailed.push(queuePedido.front()); //insert failed request in a failed requests queue
                 queuePedido.pop();
             }
         }
