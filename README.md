@@ -1,11 +1,13 @@
 # HorarioVF
 LEIC-FEUP, 2nd Year, AED
 
+Miguel Pedrosa and Joana Marques
+
 Timetable management program.
 
 O programa está organizado em várias classes. 
-A classe Estudante, que guarda os atributos de do estudante, bem como um vetor de todas as aulas (UcClasses) em que o estudante está inscrito. 
-A classe Slot, guarda os atributos correspondentes ao horário de cada UcClass (aula): dia da semana, hora de início, duração e tipo de aula (teórica e teórico-prática). 
+A classe Estudante, que guarda os atributos do estudante, bem como um vetor de todas as aulas (UcClasses) em que o estudante está inscrito. 
+A classe Slot, guarda os atributos correspondentes ao horário de cada UcClass (aula): dia da semana, hora de início, duração e tipo de aula (teórica ou teórico-prática). 
 A classe UcTurma, guarda o número máximo de estudantes numa UcTurma(aula)
 A classe Pedido guarda informações sobre o pedido de alteração de horário/turma/aula: código do estudante cujo horário/turma/aulas pretendemos alterar; código Up da UcClass que pretendemos adicionar/remover/trocar; código Class da UcClass que pretendemos adicionar/remover/trocar; tipo de pedido de alteração (“add”, “remove”, “change”).
 A classe BaseMenu que tem um método de display do menu principal e chama a função de display de cada um dos menus secundários, dependendo do input do utilizador.
@@ -16,8 +18,8 @@ As funções que não incluímos em nenhuma das classes foram colocadas num name
 Usamos as seguintes estruturas:
 Um vetor de objetos do tipo Estudante (cada estudante tem o seu objeto, construído durante a leitura do ficheiro).
 Decidimos usar dois map, por serem internamente representados como “binary search trees”, tornando a pesquisa mais eficiente.
-Um mapUcClassTimeSlot, que faz corresponder a cada UcClass ( par (ucCode, classCode) (aula)  ) o Slot correspondente.
-Um mapUcClassNumberStudents, que faz corresponder a cada UcClass ( par (ucCode, classCode) (aula)  ) o número de estudantes inscritos.
+Um mapUcClassTimeSlot, que faz corresponder a cada UcClass ( par (ucCode, classCode) ) o Slot correspondente.
+Um mapUcClassNumberStudents, que faz corresponder a cada UcClass ( par (ucCode, classCode) ) o número de estudantes inscritos.
 Uma queuePedido (FIFO), que armazena objetos do tipo Pedido (com os inputs inseridos pelo utilizador) para executar mais tarde.
 Um queue PedidoFailed, (FIFO) que armazena os objetos do tipo Pedido (com os inputs inseridos pelo utilizador) que se encontravam anteriormente na queuePedido e que não foram executados.
 
@@ -27,7 +29,7 @@ Leitura:
 Escrita:
 1.	Leitura de um novo ficheiros csv com as alterações
 Listagens:
-1.	Display de todos os estudantes ordenados por alfabeticamente.
+1.	Display de todos os estudantes ordenados alfabeticamente.
 2.	Display do horário ordenado de um estudantes.
 3.	Display de todos os estudantes inscritos em mais de n aulas (UcClasses)
 4.	Display de todos os estudantes numa aulas (UcClass)
@@ -37,7 +39,7 @@ Alterações:
 2.	Adicionar estudante a turma, tendo em conta as condições enunciadas.
 3.	Mudar estudante de turma, tendo em conta as condições enunciadas.
 Pedidos:
-1.	Todos os pedidos de alteração de horário/turma/uc  são guardados numa queuePedidos.
+1.	Todos os pedidos de alteração de horário/turma/uc são guardados numa queuePedidos.
 2.	Após receber todos os pedidos do utilizador, os pedidos serão executados.
 3.	À medida que os pedidos vão sendo executados a queuePedidos é esvaziada.
 4.	Caso algum pedido não possa ser executado, será adicionado a uma queuePedidosFailed para ser revisto.
@@ -57,6 +59,6 @@ addStudentToClass()
 
 csvStudentsReader()
 1.	Lê cada linha do ficheiro students_classes.csv, descartando a primeira.
-2.	Por cada linha que lê cria um objeto correspondente ao estudante (se ele ainda não existir), inicializa os seus atributos com a informação lida e insere-o no vectorEstudantes.
+2.	Por cada linha que lê cria um objeto correspondente ao estudante (se ele ainda não existir), inicializa os seus atributos com a informação lida e insere-o no       vectorEstudantes.
 3.	Atualiza também os contadores do número de estudantes em cada UcClass (aula) no mapUcClassesNumberStudents.
 4.	Caso não consiga abrir o ficheiro, uma mensagem de erro é impressa.
