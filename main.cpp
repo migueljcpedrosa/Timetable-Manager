@@ -18,7 +18,6 @@ using namespace TTM;
 
 
 int main() {
-    string execute;
     BaseMenu::displayBaseMenu();
     cout << "End";
 
